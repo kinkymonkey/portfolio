@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-28T00:00:00.000Z",
+  "title": "Design System: Justin Teh — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "night-desk-ink": {
+        "role": "neutral",
+        "displayName": "Night Desk Ink",
+        "canonical": "#14132c",
+        "tonalRamp": ["#181735", "#282659", "#39367d", "#4945a0", "#625fba", "#8582c9", "#b9b8e0", "#eeedf7"]
+      },
+      "raised-ink": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "#1e1c42",
+        "tonalRamp": ["#181736", "#29265a", "#39357d", "#4944a1", "#635ebb", "#8582ca", "#bab7e1", "#eeedf7"]
+      },
+      "panel-ink": {
+        "role": "neutral",
+        "displayName": "Panel Ink",
+        "canonical": "#2a2760",
+        "tonalRamp": ["#181636", "#28255b", "#38347f", "#4742a3", "#615cbd", "#8480cb", "#b9b6e2", "#ededf8"]
+      },
+      "dossier-paper": {
+        "role": "neutral",
+        "displayName": "Dossier Paper",
+        "canonical": "#f6f2ea",
+        "tonalRamp": ["#362b17", "#594826", "#7d6536", "#a18245", "#ba9c5e", "#c9b282", "#e0d3b8", "#f7f4ed"]
+      },
+      "twilight-graphite": {
+        "role": "neutral",
+        "displayName": "Twilight Graphite",
+        "canonical": "#a9a4c9",
+        "tonalRamp": ["#1f1c30", "#342f50", "#494270", "#5d5590", "#776faa", "#958fbd", "#c3bfd9", "#f0eff6"]
+      },
+      "ember-signal": {
+        "role": "primary",
+        "displayName": "Ember Signal",
+        "canonical": "#f2542d",
+        "tonalRamp": ["#481204", "#781e07", "#a82a0a", "#d8360d", "#f24f27", "#f57657", "#f9b19f", "#feebe7"]
+      },
+      "cerulean-trace": {
+        "role": "secondary",
+        "displayName": "Cerulean Trace",
+        "canonical": "#36b6e8",
+        "tonalRamp": ["#083445", "#0d5672", "#1278a0", "#189bce", "#31b4e7", "#5fc5ed", "#a3def5", "#e8f7fc"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only, one per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles: Selected work, What I run, Trajectory, About." },
+      "title": { "displayName": "Title", "purpose": "Card and component headings: case-study titles, capability titles, timeline roles." },
+      "body": { "displayName": "Body", "purpose": "All prose, 46-64ch measure." },
+      "label": { "displayName": "Label", "purpose": "Nav links, tags, badges, index numbers, system-readout strings. Always uppercase mono." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-reveal", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for scroll-triggered fade+rise reveals and staggered lists." },
+      { "name": "duration-reveal", "value": "0.6s", "purpose": "Single-element reveal duration." },
+      { "name": "duration-reveal-item", "value": "0.5s", "purpose": "Staggered list item reveal duration." },
+      { "name": "stagger-step", "value": "0.08s", "purpose": "Delay between staggered list items." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled CTA, used once per page for the footer 'Get in touch' link. Inverts on hover instead of filling further.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Get in touch<svg class=\"ds-icon\" viewBox=\"0 0 256 256\" width=\"14\" height=\"14\"><path d=\"M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #f2542d; color: #14132c; border: 1px solid #f2542d; border-radius: 0; padding: 14px 28px; font-family: 'Space Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: background 0.2s, color 0.2s; } .ds-btn-primary .ds-icon { fill: currentColor; transition: transform 0.2s; } .ds-btn-primary:hover { background: transparent; color: #f2542d; } .ds-btn-primary:hover .ds-icon { transform: translate(2px, -2px); } .ds-btn-primary:focus-visible { outline: 2px solid #f2542d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "The default button/link style across nav, hero, and work-grid — outline at rest, fills solid ember on hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">View the work<svg class=\"ds-icon\" viewBox=\"0 0 256 256\" width=\"14\" height=\"14\"><path d=\"M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z\"/></svg></a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #f6f2ea; border: 1px solid rgba(246,242,234,0.25); border-radius: 0; padding: 12px 24px; font-family: 'Space Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; } .ds-btn-ghost .ds-icon { fill: currentColor; transition: transform 0.2s; } .ds-btn-ghost:hover { background: #f2542d; color: #14132c; border-color: #f2542d; } .ds-btn-ghost:hover .ds-icon { transform: translateY(2px); } .ds-btn-ghost:focus-visible { outline: 2px solid #f2542d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Work Card",
+      "kind": "card",
+      "refersTo": "card-work",
+      "description": "Case-study grid tile: cover image with corner-anchored filed-evidence badges, title block below a hairline rule.",
+      "html": "<a class=\"ds-work-card\" href=\"#\"><div class=\"ds-work-card-media\"><span class=\"ds-badge-index\">№01</span><span class=\"ds-badge-tag\">Direction &amp; Craft</span></div><div class=\"ds-work-card-body\"><h3 class=\"ds-work-card-title\">Nestlé Chuckie</h3><p class=\"ds-work-card-client\">McCann Worldgroup</p></div></a>",
+      "css": ".ds-work-card { display: flex; flex-direction: column; height: 100%; padding: 20px; background: #14132c; border-radius: 0; text-decoration: none; transition: background 0.2s; } .ds-work-card:hover { background: rgba(30,28,66,0.6); } .ds-work-card-media { position: relative; aspect-ratio: 4 / 5; width: 100%; overflow: hidden; border: 1px solid rgba(246,242,234,0.15); background: #1e1c42; } .ds-badge-index { position: absolute; top: 8px; left: 8px; border: 1px solid rgba(246,242,234,0.25); background: rgba(20,19,44,0.8); color: #f6f2ea; padding: 2px 8px; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; } .ds-badge-tag { position: absolute; right: 8px; bottom: 8px; border: 1px solid #f2542d; background: #f2542d; color: #14132c; padding: 2px 8px; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; } .ds-work-card-body { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(246,242,234,0.12); } .ds-work-card-title { font-family: 'Anton', ui-sans-serif, sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: -0.01em; color: #f6f2ea; margin: 0; } .ds-work-card-client { margin: 4px 0 0; font-family: 'Space Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #a9a4c9; }"
+    },
+    {
+      "name": "Filed-Evidence Badge",
+      "kind": "chip",
+      "refersTo": "badge-tag",
+      "description": "The system's signature coordinate/readout tag (Sys.Portrait // 001, Fig. 01, Coord: Remote). Corner-anchors on portraits and cover images.",
+      "html": "<span class=\"ds-evidence-badge\">Sys.Portrait // 001</span>",
+      "css": ".ds-evidence-badge { display: inline-block; border: 1px solid rgba(246,242,234,0.25); background: #14132c; color: #f6f2ea; padding: 2px 8px; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; } .ds-evidence-badge.ds-accent { border-color: #f2542d; background: #f2542d; color: #14132c; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Top nav link with a literal '//' comment-syntax prefix, the system's readout-typography signature applied to navigation.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">// Work</a>",
+      "css": ".ds-nav-link { font-family: 'Space Mono', ui-monospace, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: #a9a4c9; text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: #f6f2ea; } .ds-nav-link:focus-visible { outline: 2px solid #f2542d; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Desk",
+    "overview": "The site reads like the late shift on a real production job: a deep ink-navy page lit by warm paper-white text, not a stage-lit agency reel. Every project is filed like evidence rather than performed like a highlight — case numbers (№01), figure tags (Fig. 01), record counts ([ 05 records ]), and system-readout strings (Sys.Init // Creative Operations Director // V.1, Coord: Remote) treat the site itself as the same kind of operations tooling Justin builds for clients. The voice matches: direct, evidence-first, unglossy. Copy states specifics — real client names, real numbers, real admitted unknowns — and the chrome never oversells past what the case studies actually prove.\n\nTwo things hold this together at once. The chrome is warm technical: hard square edges and uppercase mono labels (the technical half) wrapped around a first-person, plainspoken voice and a warm off-white paper tone (the human half). And restraint is structural, not decorative: one warm accent (ember) carries the site's single call-to-action and its \"Direction & Craft\" case studies; one cool accent (cerulean) is reserved strictly for the AI/pipeline-tagged work. Nothing else competes for color. Depth comes from a three-step ink ladder and hairline borders, never a shadow — this system is confirmed flat, not flat because nobody added elevation yet.\n\nTwo explicit rejections shape every decision here: this is not a generic SaaS dashboard (rounded-xl cards, drop shadows, corporate blue-on-white), and it is not a minimalist all-white resume site (flat black-on-white, no accent, no personality). Both read as either too soft to prove anything or too sterile to sound like a person.",
+    "keyCharacteristics": [
+      "Ink-navy background ladder (bg → raised → panel) with warm paper-white text, never neutral black-and-white",
+      "Zero border-radius on every UI surface; sharp square edges throughout",
+      "Flat by construction — no box-shadow anywhere; depth is tonal and structural only",
+      "Uppercase condensed display type (Anton) reserved for headline-scale identity moments",
+      "Uppercase, wide-tracked monospace (Space Mono) for every tag, index, nav link, and system-readout label",
+      "Exactly two accents: ember (warm, primary) and cerulean (cool, AI/pipeline work only) — never a third",
+      "A recurring \"filed evidence\" motif: case numbers, figure tags, record counts, coordinate-style badges"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Ember is the only color allowed to mean \"act here.\" It appears on the CTA, hover states, and Direction & Craft accents — never doubled up with cerulean in the same role.", "section": "colors" },
+      { "name": "The Two-Accent Ceiling", "body": "The palette runs on exactly one warm accent and one cool accent, no third. A new case-study category gets an existing accent assigned by its nearest tag (ops/craft → ember, AI/pipeline → cerulean), never a new hue.", "section": "colors" },
+      { "name": "The Readout Rule", "body": "Anything that behaves like a system label — a tag, a timestamp, an index number, a nav link, a coordinate string — renders in uppercase Space Mono with wide tracking. Anton never carries this role; it is reserved for headline-scale identity, never body or label text.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "No surface receives a box-shadow, ever. If a hover or active state needs to read as \"responding,\" move it up the ink ladder or brighten a hairline to Paper Hairline, Strong — never add a shadow.", "section": "elevation" },
+      { "name": "The Square-Edge Rule", "body": "0px radius on every rectangular surface, no exceptions. rounded-full exists only for the two hero glow blobs.", "section": "shapes" },
+      { "name": "The Spine Rule", "body": "A 2px accent-colored border (left, on a pull-quote; top, on a closing card or the footer) marks the one editorial emphasis point in a section. Everywhere else, borders stay 1px and neutral (Paper Hairline).", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the ink ladder (Night Desk Ink → Raised Ink → Panel Ink) as the only depth mechanism; step up the ladder or strengthen a hairline instead of adding a shadow.",
+      "Do render every tag, index number, nav link, and system-readout string in uppercase Space Mono, tracked 0.1em–0.15em.",
+      "Do keep Ember Signal to CTA/primary-accent roles and Cerulean Trace to AI/pipeline-tagged work; assign new case studies to whichever accent their tag is closer to rather than introducing a third color.",
+      "Do write body copy in the site's established first-person, plainspoken, specific voice — real names, real numbers, real admitted unknowns — matching PRODUCT.md's voice commitment.",
+      "Do use the gap-px/hairline-background grid trick for any new tiled index so dividers read as structural rule lines.",
+      "Do give every interactive link/button an arrow icon that nudges on hover; it's the system's one consistent micro-interaction."
+    ],
+    "donts": [
+      "Don't add a border-radius to any UI chrome (buttons, cards, badges, image frames, inputs); the square-edge language is absolute except for the two hero glow blobs.",
+      "Don't add a box-shadow, glow, or any other elevation cue beyond the two existing ambient hero blurs.",
+      "Don't let the site drift toward a generic SaaS dashboard (rounded cards, drop shadows, corporate blue-on-white) or a minimalist all-white resume (flat black-on-white, no accent, no system-readout language) — both were explicitly rejected as anti-references.",
+      "Don't introduce a third accent color, or use Cerulean Trace in a primary-CTA role.",
+      "Don't set Anton at body-reading sizes; it's condensed, uppercase-only, and unreadable past a headline or short label."
+    ]
+  }
+}

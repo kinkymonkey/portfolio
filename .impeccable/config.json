@@ -1,0 +1,15 @@
+{
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "createdAt": "2026-08-28T04:20:30.496Z",
+        "reason": "false positive: 10px equals DESIGN.md's documented Label size floor (0.625rem), inherited unchanged from the original Sys.Portrait/Coord badges across all 3 duplicated variants, not a new value introduced by this edit"
+      }
+    ]
+  }
+}
