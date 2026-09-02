@@ -1,7 +1,21 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
 import type { ReactNode } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const EASE = "power3.out";
+
+function prefersReducedMotion() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
 
 export function Reveal({
   children,
@@ -12,17 +26,32 @@ export function Reveal({
   delay?: number;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!ref.current || prefersReducedMotion()) return;
+      gsap.set(ref.current, { opacity: 0, y: 20 });
+      gsap.to(ref.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay,
+        ease: EASE,
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 85%",
+          once: true,
+        },
+      });
+    },
+    { scope: ref, dependencies: [delay] },
+  );
+
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -33,17 +62,34 @@ export function RevealStagger({
   children: ReactNode;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!ref.current || prefersReducedMotion()) return;
+      const items = ref.current.querySelectorAll<HTMLElement>("[data-reveal-item]");
+      if (!items.length) return;
+      gsap.set(items, { opacity: 0, y: 16 });
+      gsap.to(items, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: EASE,
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+    },
+    { scope: ref },
+  );
+
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : "hidden"}
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ staggerChildren: 0.08 }}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -55,18 +101,8 @@ export function RevealItem({
   className?: string;
 }) {
   return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 16 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-        },
-      }}
-    >
+    <div data-reveal-item className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

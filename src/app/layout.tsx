@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Public_Sans, Space_Mono } from "next/font/google";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
 const anton = Anton({
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body
         className={`${anton.variable} ${publicSans.variable} ${spaceMono.variable} antialiased`}
       >
+        <SmoothScroll />
         {children}
       </body>
     </html>
