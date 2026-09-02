@@ -15,9 +15,17 @@ export function WorkGrid() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <div className="flex items-end justify-between gap-4 border-b border-hairline pb-4">
-            <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-              Selected work
-            </h2>
+            <div className="flex items-baseline gap-3 md:gap-5">
+              <span
+                aria-hidden
+                className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
+              >
+                01
+              </span>
+              <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
+                Selected <span className="text-ember">work</span>
+              </h2>
+            </div>
             <span className="hidden font-data text-xs uppercase tracking-[0.1em] text-graphite sm:block">
               [ {String(caseStudies.length).padStart(2, "0")} records ]
             </span>
@@ -31,7 +39,7 @@ export function WorkGrid() {
                 href={`/work/${cs.slug}`}
                 className="group flex h-full flex-col p-5 transition-colors hover:bg-surface/60"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper/15 bg-surface">
+                <div className="img-shimmer relative aspect-[4/5] w-full overflow-hidden border border-paper/15">
                   <Image
                     src={cs.coverImage.src}
                     alt={cs.title}

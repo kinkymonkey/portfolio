@@ -64,7 +64,7 @@ export function Hero() {
               <div className="absolute -top-3 -left-3 z-10 border border-paper/25 bg-bg px-2 py-0.5 font-data text-[10px] uppercase tracking-[0.1em] text-paper">
                 Sys.Portrait // 001
               </div>
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper/15 bg-surface">
+              <div className="img-shimmer relative aspect-[4/5] w-full overflow-hidden border border-paper/15">
                 <Image
                   src="/images/jt-main.jpg"
                   alt="Portrait of Justin Teh"

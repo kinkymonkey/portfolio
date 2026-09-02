@@ -14,9 +14,17 @@ export function About() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-7">
           <Reveal>
-            <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-              About
-            </h2>
+            <div className="flex items-baseline gap-3 md:gap-5">
+              <span
+                aria-hidden
+                className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
+              >
+                01
+              </span>
+              <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
+                About
+              </h2>
+            </div>
           </Reveal>
 
           <div className="mt-8 space-y-5 text-base leading-relaxed text-graphite md:text-lg">
@@ -40,7 +48,7 @@ export function About() {
               <div className="absolute -top-3 -left-3 z-10 border border-paper/25 bg-bg px-2 py-0.5 font-data text-[10px] uppercase tracking-[0.1em] text-paper">
                 Sys.Portrait // 001
               </div>
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper/15 bg-surface">
+              <div className="img-shimmer relative aspect-[4/5] w-full overflow-hidden border border-paper/15">
                 <Image
                   src="/images/jt-main.jpg"
                   alt="Portrait of Justin Teh"

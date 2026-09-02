@@ -18,9 +18,18 @@ export function Capabilities() {
     <section className="border-t border-hairline bg-surface py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-            What I run
-          </h2>
+          <div className="flex items-baseline gap-3 md:gap-5">
+            <span
+              aria-hidden
+              className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
+            >
+              02
+            </span>
+            <h2 className="font-display uppercase tracking-tight">
+              <span className="text-2xl text-graphite md:text-3xl">What I</span>{" "}
+              <span className="text-4xl text-ember md:text-5xl">run</span>
+            </h2>
+          </div>
         </Reveal>
 
         <RevealStagger className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">

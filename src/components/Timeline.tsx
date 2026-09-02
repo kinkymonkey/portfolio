@@ -6,9 +6,17 @@ export function Timeline() {
     <section id="experience" className="border-t border-hairline bg-surface py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-            Trajectory
-          </h2>
+          <div className="flex items-baseline gap-3 md:gap-5">
+            <span
+              aria-hidden
+              className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
+            >
+              03
+            </span>
+            <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
+              Trajectory
+            </h2>
+          </div>
         </Reveal>
 
         <RevealStagger className="mt-10 border-t border-hairline">
