@@ -1,26 +1,22 @@
 import type { Metadata } from "next";
-import { Nav } from "@/components/Nav";
 import { About } from "@/components/About";
+import { Brands } from "@/components/Brands";
 import { Capabilities } from "@/components/Capabilities";
 import { Timeline } from "@/components/Timeline";
-import { Contact } from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "About, Justin Teh",
+  title: "About, Justin Henry Teh",
   description:
-    "Creative operations director: the pipelines, SOPs, and QA gates that let creative work ship on schedule and on brand, and twenty-plus years of trajectory that led here.",
+    "Fifteen years designing. Ten years running teams. Same standard, now pointed at AI production: SOPs, quality assurance, and the call to make the stack work.",
 };
 
 export default function AboutPage() {
   return (
-    <>
-      <Nav />
-      <main>
-        <About />
-        <Capabilities />
-        <Timeline />
-      </main>
-      <Contact />
-    </>
+    <main>
+      <About />
+      <Brands />
+      <Capabilities />
+      <Timeline />
+    </main>
   );
 }

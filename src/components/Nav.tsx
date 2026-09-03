@@ -3,20 +3,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, List, X } from "@phosphor-icons/react/dist/ssr";
-import { site } from "@/lib/data";
 
 const LINKS = [
-  { href: "/#work", label: "Work", section: "work" },
-  { href: "/case-studies", label: "Case Studies", route: "/case-studies" },
+  { href: "/", label: "Home", exact: true },
+  { href: "/work", label: "Work", route: "/work" },
   { href: "/about", label: "About", route: "/about" },
-  { href: "#contact", label: "Contact", section: "contact" },
+  { href: "/contact", label: "Contact", route: "/contact" },
 ] as const;
 
 export function Nav() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
+  const overlay = pathname === "/";
 
   useEffect(() => {
     if (!open) return;
@@ -31,98 +29,122 @@ export function Nav() {
     };
   }, [open]);
 
-  useEffect(() => {
-    const targets = ["work", "contact"]
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-    if (!targets.length) return;
+  const isActive = (link: (typeof LINKS)[number]) => {
+    if ("exact" in link && link.exact) return pathname === "/";
+    if ("route" in link && link.route)
+      return pathname === link.route || pathname.startsWith(`${link.route}/`);
+    return false;
+  };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
-      },
-      { rootMargin: "-40% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
-    );
-    targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [pathname]);
+  if (overlay) {
+    const navClass =
+      "font-body text-[13px] tracking-[0.06em] text-white/80 transition-colors duration-200 hover:text-white";
 
-  const isActive = (link: (typeof LINKS)[number]) =>
-    "route" in link
-      ? pathname === link.route
-      : pathname === "/" && activeSection === link.section;
-
-  return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-bg">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+    return (
+      <header className="absolute top-0 right-0 z-20 w-full px-8 pt-8 md:w-5/12 md:px-12">
         <Link
           href="/"
-          className="font-display text-2xl uppercase tracking-tight text-paper"
           onClick={() => setOpen(false)}
+          className="font-display block text-[clamp(1.15rem,2vw,1.35rem)] font-normal leading-none tracking-[0.2em] text-white uppercase"
         >
-          JT<span className="text-ember">_</span>
+          Justin Henry Teh
         </Link>
-        <nav className="hidden items-center gap-8 font-data text-xs uppercase tracking-[0.15em] text-graphite sm:flex">
+        <nav className="mt-4 hidden flex-wrap items-center gap-x-6 gap-y-2 sm:flex">
           {LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={isActive(link) ? "page" : undefined}
-              className={`transition-colors hover:text-paper ${
-                isActive(link) ? "text-ember" : ""
-              }`}
+              className={navClass}
             >
-              // {link.label}
+              {link.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex min-h-11 items-center gap-1.5 border border-paper/25 px-4 py-2 font-data text-xs uppercase tracking-[0.1em] text-paper transition-colors hover:border-ember hover:bg-ember hover:text-bg"
-          >
-            Get in touch
-            <ArrowUpRight
-              size={14}
-              weight="bold"
-              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </a>
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center border border-paper/25 text-paper transition-colors hover:border-ember hover:bg-ember hover:text-bg sm:hidden"
-          >
-            {open ? <X size={18} weight="bold" /> : <List size={18} weight="bold" />}
-          </button>
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+          className={`mt-4 sm:hidden ${navClass}`}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+        <div
+          id="mobile-nav"
+          className={`mt-4 sm:hidden ${open ? "block" : "hidden"}`}
+        >
+          <nav className="flex flex-col gap-3">
+            {LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                aria-current={isActive(link) ? "page" : undefined}
+                className={navClass}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
+      </header>
+    );
+  }
+
+  const innerNav =
+    "font-body text-[13px] tracking-[0.06em] text-ink transition-colors duration-200 hover:text-ink/70";
+
+  return (
+    <header className="border-b border-hairline bg-bg">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-4 py-5 md:px-6 md:py-6">
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className="font-display shrink-0 text-[13px] font-normal tracking-[0.2em] text-ink uppercase md:text-sm"
+        >
+          Justin Henry Teh
+        </Link>
+        <nav className="hidden items-center gap-x-7 sm:flex">
+          {LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isActive(link) ? "page" : undefined}
+              className={innerNav}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+          className={`sm:hidden ${innerNav}`}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
       </div>
 
       <div
         id="mobile-nav"
-        className={`fixed inset-x-0 top-16 bottom-0 z-30 bg-bg transition-opacity duration-200 sm:hidden ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
+        className={`border-t border-hairline sm:hidden ${
+          open ? "block" : "hidden"
         }`}
       >
-        <nav className="flex flex-col">
-          {LINKS.map((link, i) => (
+        <nav className="flex flex-col px-4 py-4 md:px-6">
+          {LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="flex min-h-16 items-center gap-4 border-b border-hairline px-6 font-display text-2xl uppercase tracking-tight text-paper transition-colors active:text-ember"
+              aria-current={isActive(link) ? "page" : undefined}
+              className={`${innerNav} py-3`}
             >
-              <span className="font-data text-xs text-graphite">
-                №{String(i + 1).padStart(2, "0")}
-              </span>
               {link.label}
             </Link>
           ))}

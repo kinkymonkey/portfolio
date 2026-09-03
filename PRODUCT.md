@@ -17,7 +17,7 @@ Both audiences read the same case studies; neither gets a separate track today.
 
 ## Product Purpose
 
-A personal portfolio site for Justin Teh that proves, with real case studies rather than claims, that he can run creative production and lead teams through the shift into AI-assisted workflows. Success is a recruiter or prospective client reading a case study and concluding he's operated at this level for real, then reaching out via LinkedIn.
+A personal portfolio site for Justin Henry Teh that proves, with real case studies rather than claims, that he can run creative production and lead teams through the shift into AI-assisted workflows. Success is a recruiter or prospective client reading a case study and concluding he's operated at this level for real, then reaching out via LinkedIn.
 
 ## Positioning
 
@@ -25,13 +25,13 @@ The differentiator is the combination, not either half alone: fifteen years in g
 
 ## Operating Context
 
-Case studies are read as standalone narrative long-form pieces (problem → what I found → what I did → what happened → why it matters), each anchored to real, named clients and brands (Turnitin, Nestlé/Chuckie, Rubberfashion, Avon, Coca-Cola/McCann, and a personal AI-video-pipeline R&D project). The homepage funnels into these via a work grid; About holds the full career timeline (2003–present) and capability/toolkit breakdown; every page ends in a single LinkedIn CTA ("Get in touch") — there is no contact form, email, or resume download today.
+Case studies are read as standalone narrative long-form pieces (problem → what I found → what I did → what happened → why it matters), each anchored to real, named clients and brands (Turnitin, Nestlé/Chuckie, Rubberfashion, Avon, Coca-Cola/McCann, and a personal AI-video-pipeline R&D project). The homepage funnels into this via a work grid; About holds the full career timeline (2003–present) and capability/toolkit breakdown; every page ends in a single LinkedIn CTA — there is no contact form, email, or resume download today.
 
-The site runs two permanent case-study tracks, unified on one repository page:
+Work is one label and one destination (`/work`), covering both full-depth write-ups and visual production showcases:
 
-- **Main case studies** (`caseStudies` in `src/lib/data.ts`) — named-client creative-ops work, surfaced on the homepage "Selected Work" grid and at `/work/<slug>`.
-- **AI video production case studies** (`ugcCaseStudies` in `src/lib/data.ts`) — video-led write-ups of AI production pipeline work (e.g. the Rubberfashion split-test spot), deliberately kept out of the homepage grid, at `/case-studies/<slug>`.
-- `/case-studies` is the full repository page listing both tracks together, reachable via the primary nav ("Case Studies") and a "See more" link from the homepage work grid.
+- **Main work** (`caseStudies` in `src/lib/data.ts`) — named-client creative-ops pieces at `/work/<slug>`.
+- **AI video / production showcases** (`ugcCaseStudies` in `src/lib/data.ts`) — video-led write-ups (e.g. the Rubberfashion split-test spot), also at `/work/<slug>`.
+- `/work` lists both tracks together. The primary nav uses **Work** only — not a separate Case Studies item. Old `/case-studies` URLs redirect to `/work`.
 
 ## Capabilities and Constraints
 
@@ -44,7 +44,7 @@ The site runs two permanent case-study tracks, unified on one repository page:
 
 ## Brand Commitments
 
-- Name: Justin Teh. Role as stated on site: "Creative Operations Director." Domain: justinhenryteh.com (live Vercel production domain).
+- Name: Justin Henry Teh. Role as stated on site: "Creative Operations Director." Domain: justinhenryteh.com (live Vercel production domain).
 - Voice, confirmed by existing copy: direct, plainspoken, unafraid of specific hard details (firing a team member, holding a position against executive pushback) rather than resume-speak. Mostly first-person, but a recent full-site copy pass (2026-09-02) deliberately trimmed "I"-led sentence openers in favor of clipped, dossier-style constructions ("The checkpoint only means something if...", "Letting him go was the call I made"). Preserve this voice, including that structural preference, in any new or edited copy.
 - Only public contact channel: LinkedIn (`https://linkedin.com/in/justinteh`).
 

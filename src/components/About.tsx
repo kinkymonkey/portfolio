@@ -2,64 +2,48 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const paragraphs = [
-  "Fifteen years in graphic design and art direction led here, followed by ten more in creative leadership, running teams from three people up to 300. Leading Creative Teams: SOPs, KPIs, quality assurance, resourcing, and the systems that let creative work ship reliably across a team bigger than one person can manage alone. Whether the team is human, AI, or both, it still needs someone who knows how to run it.",
-  "The part I'm actually good at starts before anyone's touched a single asset. Most creative problems aren't solved by working harder on the brief as written. They're solved by reading the actual situation: the category nobody's questioned, the catalogue nobody's looked at twice, the process everyone's just tolerating. That's the same instinct I bring to evaluating a new tool or a stalled process.",
-  "Leading a team means the system has to survive contact with reality, not just look good on paper. The SOPs get written so people actually follow them; quality assurance catches problems before a client does. Real KPIs drive performance management, and when someone tries to avoid them, I step in, including making the hard call to let someone go when the alternative is letting errors reach a client. Team leadership has scaled past 30 people directly, plus a spin-off venture that reached roughly 300 at peak.",
-  "Right now, that same rigor around SOPs and KPIs gets pointed at AI: tools get judged against real production standards. A video model that takes multiple reference images instead of just a start and end frame, or one that generates native audio instead of needing a bolted-on post pass, that's the kind of detail that decides whether a pipeline scales or falls apart. AI production has gone from brief to delivery, and an agent system now runs actual content operations.",
+  "If you're hiring a Creative Operations Director, the question is whether they can run the team when the stack changes. That's the job. This page is how it got learned.",
+  "Fifteen years in graphic design and art direction. Ten more running creative teams, from three people up to about 300 when a spin-off is counted in. SOPs. KPIs. Quality assurance. Resourcing. The systems that deliver the work when one person can no longer hold every file.",
+  "The useful work starts before anyone opens a file. Most creative problems aren't solved by working harder on the brief as written. They're solved by reading the situation: the category nobody questioned, the catalogue nobody looked at twice, the process everyone is just living with.",
+  "A system people can skip is not a system. When someone tried, they were let go. A replacement was in the chair in two weeks. The client never saw the gap.",
+  "That same standard now points at AI. Whether a model takes multiple reference images, or only a start and end frame, is not trivia. Native audio versus a bolted-on post pass is the difference between a demo and a pipeline that scales. The pipeline now runs from brief to delivery. An agent system runs the content operations.",
 ];
 
 export function About() {
   return (
-    <section id="about" className="border-t border-hairline bg-bg py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-10">
+    <section id="about" className="border-t border-hairline bg-bg py-[60px] md:py-[100px]">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-4 md:grid-cols-12 md:gap-12 md:px-6">
         <div className="md:col-span-7">
           <Reveal>
-            <div className="flex items-baseline gap-3 md:gap-5">
-              <span
-                aria-hidden
-                className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
-              >
-                01
-              </span>
-              <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-                About
-              </h2>
-            </div>
+            <h1 className="font-display text-[clamp(2.5rem,6vw,5.625rem)] font-normal leading-[1.05] tracking-[-0.02em] text-ink">
+              About
+            </h1>
           </Reveal>
 
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-graphite md:text-lg">
+          <div className="mt-10 space-y-5 font-body text-base leading-[1.7] text-ink md:text-[17px]">
             {paragraphs.map((p, i) => (
               <Reveal key={i} delay={i * 0.05}>
-                <p>{p}</p>
+                <p className="max-w-[62ch]">{p}</p>
               </Reveal>
             ))}
           </div>
           <Reveal delay={0.25}>
-            <blockquote className="mt-8 border-l-2 border-ember pl-5 font-display text-2xl uppercase leading-snug tracking-tight text-paper md:text-3xl">
-              The goal isn't running the tools. It's leading the team that
-              does.
-            </blockquote>
+            <p className="mt-10 max-w-[20ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-[1.15] tracking-[-0.02em] text-ink">
+              The goal isn&apos;t running the tools. It&apos;s leading the team that does.
+            </p>
           </Reveal>
         </div>
 
         <div className="md:col-span-5">
           <Reveal delay={0.1}>
-            <div className="relative">
-              <div className="absolute -top-3 -left-3 z-10 border border-paper/25 bg-bg px-2 py-0.5 font-data text-[10px] uppercase tracking-[0.1em] text-paper">
-                Sys.Portrait // 001
-              </div>
-              <div className="img-shimmer relative aspect-[4/5] w-full overflow-hidden border border-paper/15">
-                <Image
-                  src="/images/jt-main.jpg"
-                  alt="Portrait of Justin Teh"
-                  fill
-                  sizes="(min-width: 768px) 40vw, 90vw"
-                  className="object-cover grayscale transition-all duration-500 hover:grayscale-0"
-                />
-              </div>
-              <div className="absolute -right-3 -bottom-3 z-10 border border-ember bg-ember px-2 py-0.5 font-data text-[10px] uppercase tracking-[0.1em] text-bg">
-                Coord: Remote
-              </div>
+            <div className="img-shimmer relative aspect-[4/5] w-full overflow-hidden">
+              <Image
+                src="/images/jt-main.jpg"
+                alt="Portrait of Justin Henry Teh"
+                fill
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </div>

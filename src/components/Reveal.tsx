@@ -31,16 +31,14 @@ export function Reveal({
   useGSAP(
     () => {
       if (!ref.current || prefersReducedMotion()) return;
-      gsap.set(ref.current, { opacity: 0, y: 20 });
-      gsap.to(ref.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
+      gsap.from(ref.current, {
+        y: 12,
+        duration: 0.55,
         delay,
         ease: EASE,
         scrollTrigger: {
           trigger: ref.current,
-          start: "top 85%",
+          start: "top 90%",
           once: true,
         },
       });
@@ -69,16 +67,14 @@ export function RevealStagger({
       if (!ref.current || prefersReducedMotion()) return;
       const items = ref.current.querySelectorAll<HTMLElement>("[data-reveal-item]");
       if (!items.length) return;
-      gsap.set(items, { opacity: 0, y: 16 });
-      gsap.to(items, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
+      gsap.from(items, {
+        y: 10,
+        duration: 0.45,
         ease: EASE,
-        stagger: 0.08,
+        stagger: 0.06,
         scrollTrigger: {
           trigger: ref.current,
-          start: "top 80%",
+          start: "top 85%",
           once: true,
         },
       });

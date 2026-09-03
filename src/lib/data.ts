@@ -1,5 +1,5 @@
 export const site = {
-  name: "Justin Teh",
+  name: "Justin Henry Teh",
   role: "Creative Operations Director",
   domain: "justinteh.me",
   linkedin: "https://linkedin.com/in/justinteh",
@@ -25,12 +25,12 @@ export const capabilities = [
     title: "AI Creative Pipelines",
     accent: "cerulean" as const,
     items: [
-      "Workflow design: brief to generation, grade, QA, delivery",
-      "MCP servers connecting creative apps to Claude",
+      "Workflow: brief to generation, grade, quality, delivery",
+      "MCP servers connecting creative apps to AI platforms",
       "Direct API orchestration with fal.ai, Wavespeed, OpenRouter",
       "ComfyUI node graphs for repeatable generation",
       "Prompt libraries and model selection per shot",
-      "Brand-consistency review gates for synthetic output",
+      "Brand-consistency checks on synthetic output",
     ],
   },
   {
@@ -60,24 +60,20 @@ export const capabilities = [
 
 export const toolkit = [
   {
-    label: "Generative video",
-    tools: ["Veo", "Kling", "Runway", "Hailuo / MiniMax", "Wan", "Pika", "Seedance"],
+    label: "Generative Video & Motion",
+    tools: ["Veo", "Kling", "Runway", "ComfyUI", "ElevenLabs", "Higgsfield"],
   },
   {
-    label: "Image & finishing",
-    tools: ["Midjourney", "Flux", "Nano Banana", "Magnific", "Adobe Creative Suite", "CapCut", "Canva"],
+    label: "Visual Architecture",
+    tools: ["Midjourney", "Flux", "Magnific AI", "Adobe Creative Cloud", "Figma"],
   },
   {
-    label: "Avatar, motion, voice",
-    tools: ["Higgsfield", "HeyGen", "Creatify", "ElevenLabs"],
+    label: "Agents & Intelligence",
+    tools: ["Claude Code", "Cursor", "Hermes", "OpenRouter", "fal.ai", "Wavespeed"],
   },
   {
-    label: "Agents & orchestration",
-    tools: ["Claude Code", "Hermes", "OpenRouter", "Nous Research", "fal.ai", "Wavespeed", "kie.ai", "Wireflow", "Figma Weave", "ComfyUI"],
-  },
-  {
-    label: "Pipeline & ops",
-    tools: ["MCP with Claude", "Asana", "Notion", "Excel"],
+    label: "Pipeline & Systems",
+    tools: ["Model Context Protocol (MCP)", "Asana", "Structured Workflows"],
   },
 ];
 
@@ -87,56 +83,56 @@ export const timeline = [
     role: "Project Manager, Turnitin Creative Account",
     org: "KDCI Outsourcing",
     description:
-      "Operational bridge between KDCI and Turnitin's in-house creative team. Built the QA gateway every asset passes before delivery.",
+      "The bridge between KDCI and Turnitin's in-house creative team. Quality assurance every asset has to pass before the client sees it.",
   },
   {
     years: "2023 - Present",
     role: "Founder & Creative Principal",
     org: "Midnight Majestic",
     description:
-      "Brand identity and visual strategy studio. Built the AI production workflow used across client work and Midnight HQ, the agent system running it.",
+      "Brand identity and visual strategy. Built the AI production workflow used on client work, and Midnight HQ, the agent system that runs it.",
   },
   {
     years: "2021 - 2023",
     role: "Creative Director",
     org: "PeakSupport",
     description:
-      "Led the corporate rebrand and set the art direction across internal and external communications through a critical growth phase.",
+      "Led the corporate rebrand. Set the art direction across internal and external communications through a growth phase.",
   },
   {
     years: "2019 - 2021",
     role: "Senior Operations & Design Manager",
     org: "The/Studio",
     description:
-      "Ran three teams, 35+ staff directly, scaling to ~300 at peak once SUPPLIED!, the company's spin-off, is counted in. Designed SUPPLIED!'s brand identity and hired its first data and creative people.",
+      "Ran three teams. 35+ staff directly, about 300 at peak once SUPPLIED!, the spin-off, is counted in. Designed SUPPLIED!'s brand identity. Hired its first data and creative people.",
   },
   {
     years: "2018 - 2019",
     role: "Operations & Design Manager",
     org: "IM Consultant Services",
     description:
-      "Ran remote operations for a US skincare and industrial client portfolio across a distributed creative team.",
+      "Ran remote operations for a US skincare and industrial portfolio, across a distributed creative team.",
   },
   {
     years: "2015 - 2017",
     role: "Associate Client Manager",
     org: "RR Donnelley",
     description:
-      "Trained 100+ designers on pre-press, InDesign, and Acrobat preflighting. Went on to run a design team alongside the admin and data unit producing the business's reports and statistics.",
+      "Trained 100+ designers on pre-press, InDesign, and Acrobat preflight. Then ran a design team next to the admin and data unit that produced the business's reports.",
   },
   {
     years: "2006 - 2015",
     role: "Art Director",
     org: "Avon Cosmetics",
     description:
-      "Art directed the monthly brochure, the company's primary revenue driver, across six product categories in the Philippines, Malaysia, Vietnam, and Thailand. Concepts, design, and photo shoots with models across every category.",
+      "Art directed the monthly brochure, the company's primary revenue driver, across six categories in the Philippines, Malaysia, Vietnam, and Thailand. Concepts, design, and photo shoots in every category.",
   },
   {
     years: "2005 - 2006",
     role: "Art Director",
     org: "McCann Worldgroup",
     description:
-      "360-degree campaigns for Coca-Cola, Unilever, Globe Telecom, and San Miguel Beer. Designed the Nestlé Chuckie packaging redesign.",
+      "Campaigns for Coca-Cola, Unilever, Globe Telecom, and San Miguel Beer. Designed the Nestlé Chuckie packaging redesign.",
   },
   {
     years: "2003 - 2004",
@@ -149,7 +145,7 @@ export const timeline = [
     role: "Visual Merchandiser",
     org: "Branded Lifestyle Inc.",
     description:
-      "Eyewear retail work for Ray-Ban, Nike's eyewear line, Killer Loop, and the other brands they carried.",
+      "Eyewear retail for Ray-Ban, Nike's eyewear line, Killer Loop, and the other brands they carried.",
   },
 ];
 
@@ -166,6 +162,7 @@ export type CaseStudy = {
   accent: "ember" | "cerulean";
   tag: string;
   hook: string;
+  dek: string;
   coverImage: CaseImage;
   gallery?: CaseImage[];
   sections: { heading: string; body: string[] }[];
@@ -180,6 +177,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Operations & Leadership",
     hook:
       "Creative Project Manager on Turnitin's creative account, running three graphic designers through ad campaigns, whitepapers, slides, and social content, mostly ad campaigns and video. Leaders across the organization bring their teams' creative needs here, and creative direction gets set on every piece: layout, brand consistency, whether it's actually on brand before it goes out. Every deliverable runs through quality assurance before a client sees it, no typos, no spelling errors, nothing that shouldn't be there.",
+    dek: "A designer skipped quality assurance. It held. A replacement was in the chair in two weeks.",
     coverImage: { src: "/work/turnitin/01-clarity-process.png", focus: "50% 30%" },
     gallery: [
       { src: "/work/turnitin/02-protecting-value.png", focus: "62% 55%" },
@@ -233,6 +231,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Direction & Craft",
     hook:
       "A room of Nestlé executives heard the pitch: paint their chocolate drink bright yellow. They said no, and I did it anyway. The color got so identifiable that Nestlé ended up sending cease-and-desist letters to competitors who copied it.",
+    dek: "Nestlé said no to yellow. The shelf said yes. Competitors copied it. Nestlé sent the cease-and-desist letters.",
     coverImage: { src: "/work/chuckie/01-pack-angle.jpg", focus: "50% 45%" },
     gallery: [{ src: "/work/chuckie/02-pack-top.jpeg", focus: "50% 50%" }],
     sections: [
@@ -278,6 +277,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "AI & Direction",
     hook:
       "A European fetish-fashion retailer asked me to help them sell on Amazon. What I actually found in their catalogue was a business hiding inside their business: daily wear disguised as kink wear, and repositioning it is now rebuilding everything from the photography to the store's navigation.",
+    dek: "Half the catalogue was daily wear, sold as kink. Photography, navigation, and copy did the work. A tagline wouldn't have.",
     coverImage: { src: "/work/rubberfashion/01-daily-wear.jpg", focus: "50% 18%" },
     gallery: [
       { src: "/work/rubberfashion/02-kink-editorial.jpg", focus: "50% 15%" },
@@ -330,7 +330,8 @@ export const caseStudies: CaseStudy[] = [
     tag: "Direction & Craft",
     hook:
       "Avon's monthly brochure was the company's biggest revenue driver, across four countries, on the same clock every single month for nine years straight, and I ran the shoots that made that possible.",
-    coverImage: { src: "/work/avon/01-timeless-pieces.jpg", focus: "22% 22%" },
+    dek: "Nine years. Four markets. One monthly brochure, the company's biggest revenue driver. It never missed the clock.",
+    coverImage: { src: "/work/avon/01-timeless-pieces-cover.jpg", focus: "50% 22%" },
     gallery: [
       { src: "/work/avon/02-design-by-solenn.jpg", focus: "20% 18%" },
       { src: "/work/avon/03-formal-affair.jpg", focus: "34% 18%" },
@@ -377,6 +378,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Direction & Craft",
     hook:
       "Coca-Cola at McCann wasn't one brief, it was a rolling calendar of them: an IMAX cinema tie-in, a regional festival bottle, a summer push, a diet reformulation, each one needing its own voice while still reading as Coca-Cola before anyone read the message.",
+    dek: "New occasion every few weeks. Still Coca-Cola before anyone read the can.",
     coverImage: { src: "/work/advertising/01-penafrancia.jpeg", focus: "50% 38%" },
     gallery: [
       { src: "/work/advertising/02-imax.jpeg", focus: "50% 38%" },
@@ -423,12 +425,13 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "ai-video-pipeline",
-    title: "Building an AI Video Pipeline From Scratch",
+    title: "Production Pipelines",
     client: "Personal R&D",
     accent: "cerulean",
     tag: "AI & Agents",
     hook:
       "This isn't a pitch for an AI video editor job, it's proof of what leading a team through adopting a new production technology actually requires: understanding it deeply enough to make the call yourself, instead of approving whatever tool has the best demo reel.",
+    dek: "You can't put a team on a new stack if you've only watched the demo. He built the pipeline so he could make the call himself.",
     coverImage: { src: "/work/ai-video-pipeline/01-pipeline-graph.png", focus: "50% 42%" },
     sections: [
       {
@@ -474,9 +477,7 @@ export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);
 }
 
-/** Separate repository for UGC / AI video production case studies.
- * Deliberately not part of `caseStudies`, so growing this list never
- * touches the homepage "Selected Work" grid. */
+/** AI video / production showcases. Listed with the rest of Work. */
 export type CaseVideo = {
   src: string;
   poster: string;
@@ -490,6 +491,7 @@ export type UgcCaseStudy = {
   accent: "ember" | "cerulean";
   tag: string;
   hook: string;
+  dek: string;
   coverVideo: CaseVideo;
   sections: { heading: string; body: string[] }[];
   spots?: CaseVideo[];
@@ -506,6 +508,7 @@ export const ugcCaseStudies: UgcCaseStudy[] = [
     tag: "AI Video Production",
     hook:
       "Rubberfashion sells latex to two audiences that don't talk to each other. One buys it because it's fetish wear. The other might buy it if it stopped looking like fetish wear at all. One product, two finished ads, built for both audiences at the same time, through an AI production pipeline instead of a second shoot day.",
+    dek: "One product. Two ads. Two audiences. Same face. If identity slipped, the test was worthless.",
     coverVideo: {
       src: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed.mp4",
       poster: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed-poster.jpg",
@@ -558,24 +561,24 @@ export const ugcCaseStudies: UgcCaseStudy[] = [
       {
         src: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed.mp4",
         poster: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed-poster.jpg",
-        label: "Spot 1 — Daily wear",
+        label: "Spot 1: Daily wear",
       },
       {
         src: "/case-studies/rubberfashion-video-pipeline/dark-1-studio.mp4",
         poster: "/case-studies/rubberfashion-video-pipeline/dark-1-studio-poster.jpg",
-        label: "Spot 2 — Studio",
+        label: "Spot 2: Studio",
       },
     ],
     pipelineTest: {
       before: {
         src: "/case-studies/rubberfashion-video-pipeline/daily-1-first-pass.mp4",
         poster: "/case-studies/rubberfashion-video-pipeline/daily-1-first-pass-poster.jpg",
-        label: "First pass — body frozen",
+        label: "First pass: body frozen",
       },
       after: {
         src: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed.mp4",
         poster: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed-poster.jpg",
-        label: "Fixed — weight transfer restored",
+        label: "Fixed: weight transfer restored",
       },
       note:
         "The only difference between these two clips is the prompt: the same shot, re-stated at every stage instead of once.",
@@ -594,4 +597,15 @@ export const ugcCaseStudies: UgcCaseStudy[] = [
 
 export function getUgcCaseStudy(slug: string) {
   return ugcCaseStudies.find((c) => c.slug === slug);
+}
+
+export const workIndex = [
+  ...caseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
+  ...ugcCaseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
+];
+
+export function getNextWork(slug: string) {
+  const i = workIndex.findIndex((item) => item.slug === slug);
+  if (i < 0) return workIndex[0];
+  return workIndex[(i + 1) % workIndex.length];
 }

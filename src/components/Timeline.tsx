@@ -3,45 +3,34 @@ import { Reveal, RevealStagger, RevealItem } from "./Reveal";
 
 export function Timeline() {
   return (
-    <section id="experience" className="border-t border-hairline bg-surface py-20 md:py-28">
-      <div className="mx-auto max-w-5xl px-6">
+    <section id="experience" className="border-t border-hairline bg-bg py-[60px] md:py-[100px]">
+      <div className="mx-auto max-w-[1400px] px-4 md:px-6">
         <Reveal>
-          <div className="flex items-baseline gap-3 md:gap-5">
-            <span
-              aria-hidden
-              className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-paper/10"
-            >
-              03
-            </span>
-            <h2 className="font-display text-4xl uppercase tracking-tight text-paper md:text-5xl">
-              Trajectory
-            </h2>
-          </div>
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5.625rem)] font-normal leading-[1.05] tracking-[-0.02em] text-ink">
+            Trajectory
+          </h2>
         </Reveal>
 
-        <RevealStagger className="mt-10 border-t border-hairline">
-          {timeline.map((entry, i) => (
+        <RevealStagger className="mt-12 border-t border-hairline">
+          {timeline.map((entry) => (
             <RevealItem
               key={`${entry.org}-${entry.years}`}
-              className="group flex flex-col gap-2 border-b border-hairline px-2 py-6 transition-colors hover:bg-bg md:flex-row md:items-baseline md:gap-8 md:px-4"
+              className="grid grid-cols-1 gap-2 border-b border-hairline py-8 md:grid-cols-12 md:gap-8"
             >
-              <span className="font-display text-2xl text-paper/20 md:w-16">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="flex-1">
-                <h3 className="font-display text-xl uppercase tracking-tight text-paper">
+              <p className="font-body text-sm tracking-[0.04em] text-ink/70 md:col-span-3">
+                {entry.years}
+              </p>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-[clamp(1.5rem,2.4vw,2.25rem)] font-normal leading-[1.15] tracking-[-0.02em] text-ink">
                   {entry.role}
                 </h3>
-                <p className="mt-0.5 font-data text-xs uppercase tracking-[0.05em] text-graphite">
+                <p className="mt-2 font-body text-base leading-snug text-ink/70">
                   {entry.org}
                 </p>
-                <p className="mt-2 max-w-[62ch] text-sm leading-relaxed text-graphite">
+                <p className="mt-3 max-w-[62ch] font-body text-base leading-[1.7] text-ink">
                   {entry.description}
                 </p>
               </div>
-              <span className="font-data text-xs uppercase tracking-[0.06em] text-cerulean md:whitespace-nowrap">
-                {entry.years}
-              </span>
             </RevealItem>
           ))}
         </RevealStagger>

@@ -1,41 +1,25 @@
-import { ArrowUpRight, LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { site } from "@/lib/data";
-import { Reveal } from "./Reveal";
 
 export function Contact() {
   const year = new Date().getFullYear();
   return (
-    <footer id="contact" className="border-t-2 border-ember bg-bg py-20 text-paper md:py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
-          <h2 className="max-w-[18ch] text-balance font-display text-4xl uppercase leading-[0.95] tracking-tight md:text-6xl">
-            Let&apos;s talk about what you&apos;re building.
-          </h2>
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-8 inline-flex items-center gap-2.5 border border-ember bg-ember px-7 py-3.5 font-data text-xs uppercase tracking-[0.1em] text-bg transition-colors hover:bg-transparent hover:text-ember"
-          >
-            <LinkedinLogo size={16} weight="bold" />
-            Get in touch
-            <ArrowUpRight
-              size={14}
-              weight="bold"
-              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
+    <footer className="bg-footer text-ink">
+      <div className="mx-auto max-w-[1400px] px-4 py-16 md:px-6 md:py-24">
+        <p className="font-display text-sm font-normal tracking-[0.2em] text-ink uppercase">
+          {site.name}
+        </p>
+        <nav className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
+          <a href="/work" className="link-ui w-fit">
+            Work
           </a>
-        </Reveal>
-
-        <div className="mt-20 flex flex-col gap-3 border-t border-hairline pt-8 font-data text-xs uppercase tracking-[0.06em] text-graphite sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            {site.name} &middot; {site.role}
-          </span>
-          <span>{site.location}</span>
-          <span>
-            &copy; {year} {site.domain}
-          </span>
-        </div>
+          <a href="/about" className="link-ui w-fit">
+            About
+          </a>
+          <a href="/contact" className="link-ui w-fit">
+            Contact
+          </a>
+        </nav>
+        <p className="link-ui mt-16 border-0">© {year} justinhenryteh.com</p>
       </div>
     </footer>
   );
