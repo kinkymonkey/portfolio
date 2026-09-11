@@ -602,6 +602,7 @@ export function getUgcCaseStudy(slug: string) {
 export const workIndex = [
   ...caseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
   ...ugcCaseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
+  { slug: "motion-studies", title: "Motion studies" },
 ];
 
 export function getNextWork(slug: string) {

@@ -14,6 +14,8 @@ import {
   type UgcCaseStudy,
 } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
+import { MotionCarousel } from "@/components/MotionCarousel";
+import { motionIntro, motionStudy } from "@/lib/motion";
 
 const READ = "w-full max-w-[680px]";
 
@@ -21,6 +23,7 @@ export function generateStaticParams() {
   return [
     ...caseStudies.map((cs) => ({ slug: cs.slug })),
     ...ugcCaseStudies.map((cs) => ({ slug: cs.slug })),
+    { slug: motionStudy.slug },
   ];
 }
 
@@ -30,6 +33,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === motionStudy.slug) {
+    return {
+      title: `${motionStudy.title}, Justin Henry Teh`,
+      description: motionStudy.dek,
+    };
+  }
   const cs = getCaseStudy(slug) ?? getUgcCaseStudy(slug);
   if (!cs) return {};
   return {
@@ -244,12 +253,51 @@ function UgcWork({ cs }: { cs: UgcCaseStudy }) {
   );
 }
 
+function MotionWork() {
+  return (
+    <main className="bg-bg">
+      <StudyHeader
+        title={motionStudy.title}
+        client={motionStudy.client}
+        hook={motionIntro.dek}
+      />
+
+      <div className="px-4 pb-12 md:px-6 md:pb-16">
+        <div className="mx-auto max-w-[1400px]">
+          <MotionCarousel />
+        </div>
+      </div>
+
+      <Column className="pb-8">
+        <Reveal>
+          <Image
+            src={motionIntro.workflow.src}
+            alt={motionIntro.workflow.alt}
+            width={motionIntro.workflow.width}
+            height={motionIntro.workflow.height}
+            className="h-auto w-full"
+          />
+        </Reveal>
+        {motionIntro.after.map((p) => (
+          <p key={p.slice(0, 32)} className="study-copy">
+            {p}
+          </p>
+        ))}
+      </Column>
+
+      <NextWork slug={motionStudy.slug} />
+    </main>
+  );
+}
+
 export default async function WorkPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (slug === motionStudy.slug) return <MotionWork />;
+
   const ugc = getUgcCaseStudy(slug);
   if (ugc) return <UgcWork cs={ugc} />;
 

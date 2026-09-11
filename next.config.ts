@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         destination: "/work/:slug",
         permanent: false,
       },
+      {
+        source: "/motion",
+        destination: "/work/motion-studies",
+        permanent: false,
+      },
     ];
   },
 };

@@ -1,5 +1,13 @@
-export const motionIntro = {
+export const motionStudy = {
+  slug: "motion-studies",
   title: "Motion studies",
+  client: "Personal R&D",
+  dek: "Working tests. Some are rough. That's the point.",
+  cover: "/motion-studies/obsidian-gate.jpg",
+};
+
+export const motionIntro = {
+  title: motionStudy.title,
   dek: "These are working tests. Each one is after a different problem: a character that holds across shots, voice and lip sync, camera movement, lighting that doesn't drift. Some of the clips are rough. That's the point. The fastest way I've found to get better at motion generation is to break things on purpose and take notes.",
   workflow: {
     src: "/motion-studies/workflow.jpg",

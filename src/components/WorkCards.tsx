@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies, ugcCaseStudies } from "@/lib/data";
+import { motionStudy } from "@/lib/motion";
 import { RevealStagger, RevealItem } from "./Reveal";
 
 export const workCards = [
@@ -21,6 +22,14 @@ export const workCards = [
     image: cs.coverVideo.poster,
     imageFocus: "center 20%",
   })),
+  {
+    slug: motionStudy.slug,
+    href: `/work/${motionStudy.slug}`,
+    title: motionStudy.title,
+    dek: motionStudy.dek,
+    image: motionStudy.cover,
+    imageFocus: "center 20%",
+  },
 ];
 
 export function WorkCard({
