@@ -1,7 +1,7 @@
 export const site = {
   name: "Justin Henry Teh",
   role: "Creative Operations Director",
-  domain: "justinteh.me",
+  domain: "justinhenryteh.com",
   linkedin: "https://linkedin.com/in/justinteh",
   location: "Remote-first, US / APAC hours",
 };

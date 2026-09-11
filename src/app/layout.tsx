@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Contact } from "@/components/Contact";
@@ -19,7 +20,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://justinteh.me"),
+  metadataBase: new URL("https://justinhenryteh.com"),
   title: "Justin Henry Teh, Creative Operations Director",
   description:
     "Fifteen years as a designer and art director. Ten more running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: "Justin Henry Teh, Creative Operations Director",
     description:
       "Fifteen years as a designer and art director. Ten more running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
-    url: "https://justinteh.me",
+    url: "https://justinhenryteh.com",
     siteName: "Justin Henry Teh",
     type: "website",
   },
@@ -57,6 +58,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <Contact />
+        <Analytics />
       </body>
     </html>
   );
