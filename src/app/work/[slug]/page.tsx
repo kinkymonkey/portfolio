@@ -8,6 +8,7 @@ import {
   getCaseStudy,
   getNextWork,
   getUgcCaseStudy,
+  hiddenWork,
   ugcCaseStudies,
   type CaseImage,
   type CaseVideo,
@@ -15,13 +16,16 @@ import {
 } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { MotionCarousel } from "@/components/MotionCarousel";
+import { SiteStar } from "@/components/SiteStar";
 import { motionIntro, motionStudy } from "@/lib/motion";
 
 const READ = "w-full max-w-[680px]";
 
 export function generateStaticParams() {
   return [
-    ...caseStudies.map((cs) => ({ slug: cs.slug })),
+    ...caseStudies
+      .filter((cs) => !hiddenWork.has(cs.slug))
+      .map((cs) => ({ slug: cs.slug })),
     ...ugcCaseStudies.map((cs) => ({ slug: cs.slug })),
     { slug: motionStudy.slug },
   ];
@@ -33,6 +37,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (hiddenWork.has(slug)) return {};
   if (slug === motionStudy.slug) {
     return {
       title: `${motionStudy.title}, Justin Henry Teh`,
@@ -69,10 +74,12 @@ function StudyHeader({
   title,
   client,
   hook,
+  starId,
 }: {
   title: string;
   client: string;
   hook: string;
+  starId: string;
 }) {
   return (
     <header className="pt-14 pb-10 md:pt-20 md:pb-12">
@@ -86,6 +93,7 @@ function StudyHeader({
         </h1>
         <p className="study-hed mt-5">{client}</p>
         <p className="study-copy mt-6">{hook}</p>
+        <SiteStar id={starId} label={title} className="link-ui mt-6" />
         </div>
       </div>
     </header>
@@ -132,6 +140,22 @@ function Still({
   title: string;
   priority?: boolean;
 }) {
+  if (image.ratio === "landscape") {
+    return (
+      <div className="overflow-hidden rounded-none bg-ash">
+        <Image
+          src={image.src}
+          alt={title}
+          width={1400}
+          height={995}
+          priority={priority}
+          sizes="(min-width: 680px) 680px, 92vw"
+          className="h-auto w-full"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative aspect-[3/4] w-full overflow-hidden rounded-none bg-ash">
       <Image
@@ -228,7 +252,7 @@ function UgcWork({ cs }: { cs: UgcCaseStudy }) {
 
   return (
     <main className="bg-bg">
-      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} />
+      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} starId={`work:${cs.slug}`} />
 
       <div className="mb-4">
         <Column>
@@ -260,6 +284,7 @@ function MotionWork() {
         title={motionStudy.title}
         client={motionStudy.client}
         hook={motionIntro.dek}
+        starId={`work:${motionStudy.slug}`}
       />
 
       <div className="px-4 pb-12 md:px-6 md:pb-16">
@@ -296,6 +321,7 @@ export default async function WorkPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (hiddenWork.has(slug)) notFound();
   if (slug === motionStudy.slug) return <MotionWork />;
 
   const ugc = getUgcCaseStudy(slug);
@@ -306,7 +332,7 @@ export default async function WorkPage({
 
   return (
     <main className="bg-bg">
-      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} />
+      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} starId={`work:${cs.slug}`} />
       <HeroStill image={cs.coverImage} title={cs.title} />
       <StudySections sections={cs.sections} />
       <AssetGrid images={cs.gallery ?? []} title={cs.title} />

@@ -153,6 +153,7 @@ export type CaseImage = {
   src: string;
   /** CSS object-position, keeps the subject centered when cropped to 4:5 */
   focus?: string;
+  ratio?: "portrait" | "landscape";
 };
 
 export type CaseStudy = {
@@ -164,6 +165,7 @@ export type CaseStudy = {
   hook: string;
   dek: string;
   coverImage: CaseImage;
+  cardImage?: CaseImage;
   gallery?: CaseImage[];
   sections: { heading: string; body: string[] }[];
 };
@@ -176,7 +178,7 @@ export const caseStudies: CaseStudy[] = [
     accent: "ember",
     tag: "Operations & Leadership",
     hook:
-      "Creative Project Manager on Turnitin's creative account, running three graphic designers through ad campaigns, whitepapers, slides, and social content, mostly ad campaigns and video. Leaders across the organization bring their teams' creative needs here, and creative direction gets set on every piece: layout, brand consistency, whether it's actually on brand before it goes out. Every deliverable runs through quality assurance before a client sees it, no typos, no spelling errors, nothing that shouldn't be there.",
+      "Creative Project Manager on Turnitin's creative account, now in my 2nd year. I run 3 designers through ad campaigns and event materials, about 50 tasks a month, and set creative direction on every piece before it goes out.",
     dek: "A designer skipped quality assurance. It held. A replacement was in the chair in two weeks.",
     coverImage: { src: "/work/turnitin/01-clarity-process.png", focus: "50% 30%" },
     gallery: [
@@ -186,39 +188,22 @@ export const caseStudies: CaseStudy[] = [
     ],
     sections: [
       {
-        heading: "The role",
-        body: [
-          "The operational bridge between KDCI and Turnitin's in-house creative team, the one point of contact translating whatever a stakeholder actually needs into scoped, sequenced work for three designers. Output spans event assets like rollup banners, social tiles, and email signatures, campaign ad design, video editing, and whitepaper layout, a wide enough range that consistency doesn't happen by accident.",
-        ],
-      },
-      {
         heading: "The problem",
         body: [
-          "That kind of role breaks in two places: briefs that don't survive translation into real production tasks, and output that goes out the door without anyone consistently checking it against brand and technical spec before the client sees it.",
+          "Roles like this break in two places: briefs that don't survive translation into real tasks, and output that ships without anyone consistently checking it against brand and spec.",
         ],
       },
       {
-        heading: "What I found",
+        heading: "What I did",
         body: [
-          "Neither of those problems gets solved by working harder on any single asset. They get solved by building the checkpoint the work has to pass through before anyone else does. Without one, quality depends on whoever happened to be paying closest attention that day, which isn't a system, it's luck. A quality assurance checkpoint now covers every asset before delivery: brand consistency, technical spec, versioning, no exceptions. Performance management runs against documented SOPs instead of gut feel, so people know the KPIs before they're being measured against them.",
+          "I built the checkpoint. Every asset now runs through QA before delivery, against documented SOPs instead of gut feel. Across ~50 tasks a month, my own read on quality lands around 98%, no formal tracking, just my count.",
+          "It held under a real test. One designer routed work straight to the client to skip QA. I let him go and had a replacement sourced, vetted, and onboarded inside 2 weeks. The client never saw a gap.",
         ],
       },
       {
-        heading: "What I did about it",
+        heading: "Why it matters",
         body: [
-          "The checkpoint only means something if it actually holds when someone tries to skip it. One designer started sending work directly to the client without routing it through me first, cutting quality assurance out entirely. The errors that quality assurance existed to catch started reaching the client instead. Letting him go was the call I made, and a replacement was sourced, vetted, and onboarded inside two weeks, so the client never saw a gap in delivery.",
-        ],
-      },
-      {
-        heading: "What happened",
-        body: [
-          "Quality assurance is still the standard every asset runs through, and it held under the actual test of someone trying to bypass it. The two-week rebuild after letting the designer go kept delivery on track without the client noticing anything had changed, which is the real measure of whether a system works: not whether it looks good when nothing's going wrong, but whether it holds when someone tries to break it.",
-        ],
-      },
-      {
-        heading: "Why this one matters to me",
-        body: [
-          "This is the clearest proof I have that I don't just design good process, I enforce it, even when enforcing it costs me a team member I now have to replace under pressure. Anyone can write an SOP. What actually matters is being willing to act when someone ignores it, and having a plan ready so that decision doesn't become the client's problem too.",
+          "Anyone can write an SOP. What matters is enforcing it, even when that costs a team member I then have to replace under pressure.",
         ],
       },
     ],
@@ -238,33 +223,25 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         body: [
-          "Nestlé's chocolate drink brand, Chuckie, was invisible. Not failing. Invisible, which is worse. At McCann Worldgroup at the time, running 360-degree campaigns for Coca-Cola, Unilever, and Globe Telecom, I was the art director when Nestlé's packaging problem landed on the account. A trip to the supermarket, walking the chocolate drinks aisle like an ordinary shopper, made it obvious: one pack couldn't be told from another. Just a wall of brown, competitor after competitor, Chuckie camouflaged somewhere in the middle of it.",
-          "Nobody at Nestlé handed over a real creative brief, just \"do something to increase sales,\" so finding the actual problem had to come first.",
+          "Chuckie was invisible on shelf, not failing, just lost in a wall of brown. Every competitor had converged on the same color. I was the art director on the account at McCann, running 360-degree campaigns for Coca-Cola, Unilever, and Globe Telecom at the time. I walked the aisle myself and found the real brief nobody handed me: nothing on that shelf was ownable.",
         ],
       },
       {
-        heading: "What I found",
+        heading: "What I did",
         body: [
-          "The whole category had converged on brown. Every brand, no exceptions. Categories do this all the time, nobody wants to be first to break from what's already working for everyone else, so the whole shelf ends up looking the same. Which meant a color was sitting there unclaimed. Nobody owned one.",
-        ],
-      },
-      {
-        heading: "The pitch nobody wanted to hear",
-        body: [
-          "The pitch to Nestlé: go the opposite direction. Not tweak the brown, abandon it. Predominantly yellow, loud enough to be the one thing on the shelf that doesn't look like everything around it.",
-          "The room didn't love it. Brown felt safe, and yellow felt like the kind of call that gets someone fired if it flops, but I held the position anyway and got the sign-off, mostly by showing them exactly which shelf they'd be standing next to and what they'd actually look like in it.",
+          "I pitched the opposite of brown: predominantly yellow, loud enough to be the one thing that didn't look like everything around it. The room hated it. Brown felt safe, yellow felt like a firing offense if it flopped, but I held the position and got the sign-off by showing them exactly which shelf they'd be standing next to.",
         ],
       },
       {
         heading: "What happened",
         body: [
-          "The redesign took the shelf. Chuckie went from disappearing into the category to owning the only color nobody else had touched. It worked well enough that competitors started copying the yellow, and Nestlé issued cease-and-desist letters to make them stop. The packaging is still running today, two decades later, unchanged on the one decision that mattered.",
+          "The redesign took the shelf. Competitors started copying the yellow; Nestlé sent cease-and-desist letters to stop them. The packaging is still running today, unchanged, 20 years later.",
         ],
       },
       {
-        heading: "Why this one matters to me",
+        heading: "Why it matters",
         body: [
-          "This is the case that taught me the difference between a safe answer and a right one. Everyone in that room had a reason to say no, and I had exactly one reason to say yes: the shelf actually got looked at, and they hadn't. That's still how I work. Read the real situation before anyone else bothers to, then hold the position when the room gets nervous.",
+          "Everyone in that room had a reason to say no. I had one reason to say yes: the shelf actually got looked at, and they hadn't. That's still how I work.",
         ],
       },
     ],
@@ -276,7 +253,7 @@ export const caseStudies: CaseStudy[] = [
     accent: "cerulean",
     tag: "AI & Direction",
     hook:
-      "A European fetish-fashion retailer asked me to help them sell on Amazon. What I actually found in their catalogue was a business hiding inside their business: daily wear disguised as kink wear, and repositioning it is now rebuilding everything from the photography to the store's navigation.",
+      "A European fetish-fashion retailer hired me to sell them on Amazon. What I found in their catalogue was a business hiding inside their business: daily wear disguised as kink wear, and repositioning it means rebuilding the photography to the navigation.",
     dek: "Half the catalogue was daily wear, sold as kink. Photography, navigation, and copy did the work. A tagline wouldn't have.",
     coverImage: { src: "/work/rubberfashion/01-daily-wear.jpg", focus: "50% 18%" },
     gallery: [
@@ -288,36 +265,25 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         body: [
-          "Rubberfashion came to me with a pile of separate asks: fix the package labels, build out Amazon A+ content, rebuild the storefront, get ad creative running on Taboola, produce social assets, push into Temu. About 50 products, no single deliverable, just a retailer trying to grow past the niche audience that already knew them.",
-          "That's the hard ceiling most niche brands hit. You can dominate your core buyers and still be invisible to everyone else, because everything about how you present the product tells outsiders \"this isn't for you.\"",
-          "Early positioning leaned into individualism: \"wear what you want, be who you are.\" True, but it still spoke only to people already fluent in kink culture. It didn't open a door for anyone standing outside it.",
+          "Rubberfashion came in with a pile of asks: package labels, Amazon A+ content, a rebuilt storefront, ad creative on Taboola, social assets, a Temu push. About 50 products, no single deliverable. Writing USPs product by product, I found a real chunk of the catalogue wasn't fetish-only: pieces that read as everyday wearable if shot and copywritten differently.",
         ],
       },
       {
-        heading: "What I found",
+        heading: "What I did",
         body: [
-          "Going product by product to write the USPs, I noticed something the client hadn't framed out loud. A real chunk of the catalogue wasn't fetish-only at all. Pieces that read as everyday wearable if you photographed and copywrote them differently, same product, different door into the same brand.",
-          "The split got named directly: daily wear versus kink wear. Not softening what the brand is, just being honest that half the catalogue is fashion first, and treating it that way instead of burying it under one identity.",
-        ],
-      },
-      {
-        heading: "What I did about it",
-        body: [
-          "The repositioning meant rebuilding more than copy. The visual direction changed to match, styling and shooting the daily-wear pieces so they read as fashion on first glance, not as a kink product trying to pass. The old photography was built for an audience that already knew what it was looking at. The new direction had to work on someone seeing latex as clothing for the first time.",
-          "The storefront needed the same rethink, and I dug into how people actually shop Amazon stores, not general UX theory, Amazon-specific behavior, then rebuilt the navigation around it. Fewer categories in the main nav, kink-specific sub-categories moved down into secondary navigation. A shopper landing on \"daily wear\" doesn't get routed past kink signage to find it. That's a small structural change with an outsized effect on who feels like the store is for them.",
-          "Everything downstream is getting rebuilt to match: product listings rewritten, new A+ content, a new brand story module. The rest of the original build stays underneath it: the USP extraction through Claude, image generation across Seedream, Flux, Nano Banana, and Luma, the Temu expansion where I brought a second designer onto the build and held their output to the same standard as my own.",
+          "I named the split directly: daily wear versus kink wear. I changed the styling and photography to match, shot for someone seeing latex as clothing for the first time, not someone who's already fluent in kink. I rebuilt the storefront navigation around real Amazon shopping behavior: fewer categories up front, kink sub-categories moved down, so a \"daily wear\" shopper isn't routed past kink signage first. I'm rebuilding the listings, A+ content, and brand story module to match. Underneath it: USP extraction through Claude, image generation across Seedream, Flux, Nano Banana, and Luma, and the Temu expansion, where I brought on a second designer and held their output to my standard.",
         ],
       },
       {
         heading: "What happened",
         body: [
-          "No clean conversion numbers to point to, this wasn't run as an A/B test. But several products hit top 10 in their niche category within about a week of launch under the original positioning. The daily-wear repositioning is newer and still rolling out across the storefront and the listings, the piece of this work I expect to matter most once it's fully live.",
+          "No clean conversion numbers, this wasn't an A/B test, but several products hit top 10 in their niche category within about a week under the original positioning. The daily-wear repositioning is newer and still rolling out, the piece I expect to matter most once live.",
         ],
       },
       {
-        heading: "Why this one matters to me",
+        heading: "Why it matters",
         body: [
-          "Most of what people hire me for looks like production: get the images made, get the store built, ship the assets. The actual value I added here wasn't any single asset. It was noticing a second market sitting inside a catalogue everyone else was only reading one way, then having the follow-through to rebuild the photography, the store architecture, and the copy around that read instead of leaving it as a one-line insight. That's the part of the job I care about most, and it's easy to miss if you're only counting deliverables.",
+          "The value here wasn't any single asset. It was noticing a second market inside a catalogue everyone else read one way, then rebuilding the photography, the architecture, and the copy around it instead of leaving it as a one-line insight.",
         ],
       },
     ],
@@ -331,11 +297,15 @@ export const caseStudies: CaseStudy[] = [
     hook:
       "Avon's monthly brochure was the company's biggest revenue driver, across four countries, on the same clock every single month for nine years straight, and I ran the shoots that made that possible.",
     dek: "Nine years. Four markets. One monthly brochure, the company's biggest revenue driver. It never missed the clock.",
-    coverImage: { src: "/work/avon/01-timeless-pieces-cover.jpg", focus: "50% 22%" },
+    coverImage: { src: "/work/avon/01-timeless-pieces.jpg", ratio: "landscape" },
+    cardImage: {
+      src: "/work/avon/01-timeless-pieces-cover.jpg",
+      focus: "50% 22%",
+    },
     gallery: [
-      { src: "/work/avon/02-design-by-solenn.jpg", focus: "20% 18%" },
-      { src: "/work/avon/03-formal-affair.jpg", focus: "34% 18%" },
-      { src: "/work/avon/04-his-hers.jpg", focus: "50% 45%" },
+      { src: "/work/avon/02-design-by-solenn.jpg", ratio: "landscape" },
+      { src: "/work/avon/03-formal-affair.jpg", ratio: "landscape" },
+      { src: "/work/avon/04-his-hers.jpg", ratio: "landscape" },
     ],
     sections: [
       {
@@ -377,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
     accent: "ember",
     tag: "Direction & Craft",
     hook:
-      "Coca-Cola at McCann wasn't one brief, it was a rolling calendar of them: an IMAX cinema tie-in, a regional festival bottle, a summer push, a diet reformulation, each one needing its own voice while still reading as Coca-Cola before anyone read the message.",
+      "Coca-Cola at McCann wasn't one brief. It was a rolling calendar of them: an IMAX tie-in, a festival bottle, a summer push, a diet reformulation. Each one needed its own voice. Every one still had to read as Coca-Cola first.",
     dek: "New occasion every few weeks. Still Coca-Cola before anyone read the can.",
     coverImage: { src: "/work/advertising/01-penafrancia.jpeg", focus: "50% 38%" },
     gallery: [
@@ -390,35 +360,25 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         body: [
-          "Coca-Cola's limited-edition packaging program at McCann wasn't a single creative problem, it was a new one every few weeks. A cinema tie-in for IMAX's anniversary, a regional festival bottle for Peñafrancia, a summer push, a diet reformulation that needed its own visual identity on the can. Different audiences, different occasions, different emotional register every time, and every single one still had to read as Coca-Cola before anyone read the specific message.",
-          "Nestlé's Carnation line ran the same problem in a different aisle: a 'Light' evaporated milk variant that needed to look like a genuine reformulation, not a diet sticker slapped on the same can.",
+          "I ran Coca-Cola's limited-edition packaging program at McCann, and it wasn't one creative problem, it was a new one every few weeks. An IMAX anniversary tie-in. A Peñafrancia festival bottle. A summer push. A diet reformulation that needed its own visual identity. Different audience, different occasion, different emotional register every time, and every one still had to read as Coca-Cola first. I hit the same problem on Nestlé's Carnation line: a 'Light' evaporated milk variant that had to look like a real reformulation, not a diet sticker on the same can.",
         ],
       },
       {
-        heading: "What I found",
+        heading: "What I did",
         body: [
-          "The failure mode on a limited-edition program is treating each release as its own creative problem. Do that and the brand drifts a little further from itself with every release, until nothing on shelf looks related anymore. What actually holds a program together is a locked set of brand anchors, the script, the red, the bottle silhouette, that stay fixed no matter how far the surrounding concept wanders.",
-        ],
-      },
-      {
-        heading: "What I did about it",
-        body: [
-          "For the IMAX tie-in I built the can around the cinema experience itself, film-strip motif, 3-D glasses, popcorn, red on red so the Coca-Cola script stayed the loudest thing on the can even against a busy photographic scene.",
-          "The Peñafrancia bottle needed the opposite treatment: illustrated, warm, rooted in the actual festival imagery, the boat procession, the flags, and I still anchored it back to brand red instead of letting the regional palette take over.",
-          "The 'Buksan ang Summer' can leaned into pure color and a sunburst mark instead of photography, cheap to reproduce at volume and unmistakably seasonal. For the Coca-Cola Light word-mark run, I built the surface pattern out of the brand's own vocabulary, actual product language repeated as texture, so the diet variant still felt like Coca-Cola instead of a monochrome afterthought.",
-          "Nestlé Carnation Light needed a smaller, sharper fix: keep the red Nestlé and Carnation lockup exactly where shoppers already expect it, then let the product photography, a plated panna cotta, two women sharing it, sell the reformulation instead of relying on the word 'Light' to do all the work.",
+          "I locked a set of anchors, the script, the red, the bottle silhouette, and never let them move. IMAX got a film strip, 3-D glasses, popcorn, red on red, so the script stayed the loudest thing on the can. Peñafrancia went the opposite way: illustrated, warm, rooted in the actual festival, but I still anchored it back to brand red. Buksan ang Summer leaned into color and a sunburst mark instead of photography, cheap to reproduce and unmistakably seasonal. For Coca-Cola Light I built the pattern from the brand's own product language, so the diet variant didn't read as an afterthought. Carnation Light kept the red Nestlé lockup exactly where shoppers expect it and let the photography sell the reformulation.",
         ],
       },
       {
         heading: "What happened",
         body: [
-          "Every one of these ran as a real production release, not a pitch deck. The limited editions shipped on their tie-in windows, the seasonal work turned over every year, and the same account carried this pattern across Unilever, Globe Telecom, and San Miguel Beer during the same run at McCann.",
+          "Every one of these shipped as a real production release, not a pitch deck. I carried the same discipline across Unilever, Globe Telecom, and San Miguel Beer during the same run at McCann.",
         ],
       },
       {
-        heading: "Why this one matters to me",
+        heading: "Why it matters",
         body: [
-          "This is the discipline everything since traces back to: say something new every time and still protect the one thing that has to stay constant. That's the same problem I solve now running brand-consistency checks on AI-generated creative, just with a different production method underneath it.",
+          "Say something new every time. Protect the one thing that has to stay constant. That's the discipline everything since traces back to, and I run the same check now on AI-generated creative, just with a different production method underneath it.",
         ],
       },
     ],
@@ -507,7 +467,7 @@ export const ugcCaseStudies: UgcCaseStudy[] = [
     accent: "cerulean",
     tag: "AI Video Production",
     hook:
-      "Rubberfashion sells latex to two audiences that don't talk to each other. One buys it because it's fetish wear. The other might buy it if it stopped looking like fetish wear at all. One product, two finished ads, built for both audiences at the same time, through an AI production pipeline instead of a second shoot day.",
+      "Rubberfashion sells latex to two audiences that don't talk to each other: one buys it as fetish wear, the other might buy it if it stopped looking like fetish wear at all. One product, two finished ads, built for both at once, through an AI pipeline instead of a second shoot day.",
     dek: "One product. Two ads. Two audiences. Same face. If identity slipped, the test was worthless.",
     coverVideo: {
       src: "/case-studies/rubberfashion-video-pipeline/daily-2-fixed.mp4",
@@ -518,42 +478,37 @@ export const ugcCaseStudies: UgcCaseStudy[] = [
       {
         heading: "The brief",
         body: [
-          "The growth team wanted to test both pitches on the same product, at the same time, without a second shoot day and without a second model. That was the brief I gave myself: one product, two finished ads, two audiences, built through an AI production pipeline instead of two separate shoots.",
+          "The growth team wanted to test both pitches on the same product, same time, without a second shoot or a second model. That was the brief I gave myself, run through Magnific Spaces, Seedream 5 Pro, and Seedance 2.5.",
         ],
       },
       {
         heading: "The risk",
         body: [
-          "The risk was technical. If the woman in spot one looked even slightly different from the woman in spot two, hair, face, proportions, anything, the split test stops comparing two pitches and starts comparing two different women. Nobody would know that's what broke it, the data would just come back confused. The whole thing depended on one variable holding still while everything else around it changed.",
+          "If the woman in spot one looked even slightly different from spot two, hair, face, proportions, the split test stops comparing two pitches and starts comparing two different women. The data comes back confused, and nobody knows why. One variable had to hold still while everything else changed.",
         ],
       },
       {
-        heading: "The positioning split",
+        heading: "The split",
         body: [
-          "The first spot leans into the repositioning I'd already sharpened for the Amazon storefront work: daily wear, not kink wear. A woman ties her shoe on the couch, stands, grabs her bag, and walks out the door talking about her outfit like it's an ordinary Tuesday. Minimalist living room, natural light, handheld phone-camera energy. The latex reads as clothing because everything around it insists it's a normal morning.",
-          "The second spot goes the other way on purpose. Same product, same face, but the camera orbits her in a dark crimson studio space, the brand's own color, low-key lighting, no daylight anywhere in the frame. Nothing about her changes. Everything about the room does.",
-          "That's the test: hold the one thing that has to stay fixed, her identity, and vary everything around it until the numbers say which frame the audience responds to.",
+          "I shot spot one for daily wear, not kink wear: she ties her shoe, grabs her bag, walks out the door on an ordinary Tuesday, minimalist living room, natural light, handheld energy. For spot two I went the other way on purpose: same face, same product, but the camera orbits her in a dark crimson studio, no daylight anywhere. Her identity holds fixed. Everything around it moves.",
         ],
       },
       {
-        heading: "Where the pipeline got tested",
+        heading: "What broke, and the fix",
         body: [
-          "The first pass at the daily wear spot was clean and still wrong in a way I couldn't name until I watched it back. Camera moves landed. Dialogue synced. And she wasn't moving. Head turned, mouth moved, everything else stayed locked. It read like a mannequin with a good face.",
-          "That's a known failure mode in these models. Left alone, they default to animating the head and eyes and leaving the body frozen, because full-body motion is harder to keep coherent across a shot than a talking head is. The fix wasn't a re-generate, it was going back into the prompt and forcing weight transfer, arm swing, and shoulder rotation into every stage of the shot, then stating it again in the consistency lock at the end. Say it once and the model drifts back to stillness by the second half. Say it in both places and it holds.",
-          "The second catch was smaller: a prop she's holding that these models are known to drop between cuts if you stop mentioning it's still in her hand. Same fix. State the prop's position in every stage, not just the first one, or watch it disappear by the third.",
-          "Neither catch is glamorous. Both are the actual job. The gap between a generated clip and a usable one lives in catches like these, and none of it shows up in the finished reel, only in whether the reel holds up.",
+          "3 failure modes showed up across Seedream 5 Pro and Seedance 2.5: her body froze while her head kept moving, a mannequin with a good face; a prop vanished between cuts; and the location itself drifted, a wall that wasn't there last shot. Same fix each time: anchor it. State the weight transfer, the prop's position, and the location's details in every stage of the prompt, then restate it in the consistency lock. Say it once and it drifts back. Say it twice and it holds.",
         ],
       },
       {
         heading: "What held",
         body: [
-          "What surprised me was how well identity survived across all of it. Same reference through a living room, a city street, and a dark crimson studio, through hair and makeup changes between takes, and the face never drifted. That's the part of the pipeline I'd trust on a real production slate, it held up across completely different lighting and styling without a single manual touch-up.",
+          "Same reference face through a living room, a city street, a studio, hair and makeup changes, and it never drifted. That's the part I'd trust on a real slate.",
         ],
       },
       {
-        heading: "The reflection",
+        heading: "Why it matters",
         body: [
-          "Twenty years directing shoots, identity consistency was never something I had to solve, it was solved automatically by the same person standing on set. This is the first time I've had to engineer it by hand: lock what has to stay fixed, let everything else move, and build the quality assurance discipline to catch the moment the system starts cheating. Same eye I had at Avon, pointed at a different kind of set. What's new is knowing exactly which line in a prompt is doing the load-bearing work, and never leaving it unstated twice in a row.",
+          "20 years directing shoots, identity consistency wasn't mine to solve, it was solved automatically by the same person standing on set. This is the first time I've had to engineer it by hand. Same eye I had at Avon, pointed at a different kind of set.",
         ],
       },
     ],
@@ -599,8 +554,12 @@ export function getUgcCaseStudy(slug: string) {
   return ugcCaseStudies.find((c) => c.slug === slug);
 }
 
+export const hiddenWork = new Set(["ai-video-pipeline"]);
+
 export const workIndex = [
-  ...caseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
+  ...caseStudies
+    .filter((cs) => !hiddenWork.has(cs.slug))
+    .map((cs) => ({ slug: cs.slug, title: cs.title })),
   ...ugcCaseStudies.map((cs) => ({ slug: cs.slug, title: cs.title })),
   { slug: "motion-studies", title: "Motion studies" },
 ];

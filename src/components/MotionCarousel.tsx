@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motionClips, type MotionClip } from "@/lib/motion";
+import { SiteStar } from "./SiteStar";
 
 export function MotionCarousel() {
   const scroller = useRef<HTMLDivElement>(null);
@@ -163,6 +164,12 @@ export function MotionCarousel() {
         <h2 className="font-display mt-3 text-[clamp(1.75rem,3vw,2.35rem)] font-normal leading-[1.15] tracking-[-0.02em] text-ink">
           {clip.title}
         </h2>
+        <SiteStar
+          key={clip.id}
+          id={`motion:${clip.id}`}
+          label={clip.title}
+          className="link-ui mt-4"
+        />
         <div className="mt-5 space-y-5">
           {clip.body.map((p) => (
             <p key={p.slice(0, 24)} className="study-copy">
