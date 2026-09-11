@@ -32,6 +32,17 @@ export type MotionClip = {
 
 export const motionClips: MotionClip[] = [
   {
+    id: "maika-moving-in",
+    title: "Maika Moving In",
+    clip: "Episode 1",
+    src: "/motion-studies/maika-moving-in.mp4",
+    poster: "/motion-studies/maika-moving-in.jpg",
+    body: [
+      "This was me learning how to make UGC video ads. I wanted the whole run, not just a generated clip: the process, the pipeline, which assets you need in hand, and a script that can actually carry the spot.",
+      "The result is a realistic influencer character living her life in a surf town, mixed with a short product sell. The lifestyle has to hold first. The sell has to sit inside that life, not land like a separate ad at the end.",
+    ],
+  },
+  {
     id: "corpse-walkers",
     title: "Corpse Walkers",
     clip: "Episode 1",
