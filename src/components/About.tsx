@@ -2,11 +2,11 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const paragraphs = [
-  "If you're hiring a Creative Operations Director, the question is whether they can run the team when the stack changes. That's the job. This page is how it got learned.",
-  "Fifteen years in graphic design and art direction. Ten more running creative teams, from three people up to about 300 when a spin-off is counted in. SOPs. KPIs. Quality assurance. Resourcing. The systems that deliver the work when one person can no longer hold every file.",
-  "The useful work starts before anyone opens a file. Most creative problems aren't solved by working harder on the brief as written. They're solved by reading the situation: the category nobody questioned, the catalogue nobody looked at twice, the process everyone is just living with.",
-  "A system people can skip is not a system. When someone tried, they were let go. A replacement was in the chair in two weeks. The client never saw the gap.",
-  "That same standard now points at AI. Whether a model takes multiple reference images, or only a start and end frame, is not trivia. Native audio versus a bolted-on post pass is the difference between a demo and a pipeline that scales. The pipeline now runs from brief to delivery. An agent system runs the content operations.",
+  "If you're hiring a Creative Operations Director, the real question is whether I can run the team when the stack changes. That's the job. Here's how I learned it.",
+  "20+ years in graphic design and art direction. 8 of those running creative teams, from 3 people up to about 300 counting a spin-off. I built the SOPs, KPIs, QA, resourcing, the systems that keep work moving once one person can't hold every file.",
+  "The useful work starts before anyone opens a file. Most creative problems aren't fixed by grinding harder on the brief. They're fixed by reading the situation: the category nobody questioned, the catalogue nobody looked at twice, the process everyone's just putting up with.",
+  "A system people can skip isn't a system, and I've proven it. When someone tried, I let them go and had a replacement in the chair within 2 weeks. The client never saw the gap.",
+  "I hold AI to the same standard now. Whether a model takes multiple reference images or just a start and end frame isn't trivia, it's the gap between a demo and a pipeline that scales. So is native audio versus a bolted-on post pass. My pipeline runs brief to delivery; an agent system runs the content operations under it.",
 ];
 
 export function About() {
@@ -29,7 +29,7 @@ export function About() {
           </div>
           <Reveal delay={0.25}>
             <p className="mt-10 max-w-[20ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-[1.15] tracking-[-0.02em] text-ink">
-              The goal isn&apos;t running the tools. It&apos;s leading the team that does.
+              I&apos;m not here to run the tools. I&apos;m here to lead the team that does.
             </p>
           </Reveal>
         </div>
