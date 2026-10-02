@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Contact } from "@/components/Contact";
+import { ChromeGate } from "@/components/ChromeGate";
 import { site } from "@/lib/data";
 import "./globals.css";
 
@@ -76,9 +77,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
         <SmoothScroll />
-        <Nav />
+        <ChromeGate>
+          <Nav />
+        </ChromeGate>
         {children}
-        <Contact />
+        <ChromeGate>
+          <Contact />
+        </ChromeGate>
         <Analytics />
       </body>
     </html>

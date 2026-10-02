@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work",
     "/about",
     "/contact",
+    "/majestic-ads",
     ...slugs.map((s) => `/work/${s}`),
   ].map((path) => ({ url: `${base}${path}` }));
 }
