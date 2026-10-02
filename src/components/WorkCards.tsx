@@ -3,7 +3,6 @@ import Link from "next/link";
 import { caseStudies, hiddenWork, ugcCaseStudies } from "@/lib/data";
 import { motionStudy } from "@/lib/motion";
 import { RevealStagger, RevealItem } from "./Reveal";
-import { SiteStar } from "./SiteStar";
 
 export const workCards = [
   ...caseStudies
@@ -64,11 +63,6 @@ export function WorkCard({
           {item.dek}
         </p>
       </Link>
-      <SiteStar
-        id={`work:${item.slug}`}
-        label={item.title}
-        className="font-body mt-3 text-[13px] tracking-[0.06em] text-ink/70 transition-colors duration-200 hover:text-ink"
-      />
     </div>
   );
 }

@@ -3,12 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SiteStar } from "./SiteStar";
 
 const LINKS = [
   { href: "/", label: "Home", exact: true },
   { href: "/work", label: "Work", route: "/work" },
-  { href: "/journal", label: "Journal", route: "/journal" },
   { href: "/about", label: "About", route: "/about" },
   { href: "/contact", label: "Contact", route: "/contact" },
 ] as const;
@@ -62,7 +60,6 @@ export function Nav() {
               {link.label}
             </Link>
           ))}
-          <SiteStar className={navClass} label="this site" />
         </nav>
         <button
           type="button"
@@ -90,7 +87,6 @@ export function Nav() {
                 {link.label}
               </Link>
             ))}
-            <SiteStar className={navClass} label="this site" />
           </nav>
         </div>
       </header>
@@ -121,7 +117,6 @@ export function Nav() {
               {link.label}
             </Link>
           ))}
-          <SiteStar className={innerNav} label="this site" />
         </nav>
         <button
           type="button"
@@ -153,7 +148,6 @@ export function Nav() {
               {link.label}
             </Link>
           ))}
-          <SiteStar className={`${innerNav} py-3`} label="this site" />
         </nav>
       </div>
     </header>

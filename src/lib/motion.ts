@@ -1,7 +1,7 @@
 export const motionStudy = {
   slug: "motion-studies",
   title: "Motion studies",
-  client: "Personal R&D",
+  client: "AI production range",
   dek: "Working tests. Some are rough. That's the point.",
   cover: "/motion-studies/obsidian-gate.jpg",
 };

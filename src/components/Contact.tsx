@@ -1,5 +1,4 @@
 import { site } from "@/lib/data";
-import { SiteStar } from "./SiteStar";
 
 export function Contact() {
   const year = new Date().getFullYear();
@@ -20,9 +19,8 @@ export function Contact() {
             Contact
           </a>
         </nav>
-        <p className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3">
+        <p className="mt-16">
           <span className="link-ui border-0">© {year} justinhenryteh.com</span>
-          <SiteStar className="link-ui" label="this site" />
         </p>
       </div>
     </footer>

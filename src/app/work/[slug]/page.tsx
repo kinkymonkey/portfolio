@@ -16,7 +16,6 @@ import {
 } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { MotionCarousel } from "@/components/MotionCarousel";
-import { SiteStar } from "@/components/SiteStar";
 import { motionIntro, motionStudy } from "@/lib/motion";
 
 const READ = "w-full max-w-[680px]";
@@ -40,14 +39,14 @@ export async function generateMetadata({
   if (hiddenWork.has(slug)) return {};
   if (slug === motionStudy.slug) {
     return {
-      title: `${motionStudy.title}, Justin Henry Teh`,
+      title: `${motionStudy.title}: AI video production, Justin Henry Teh`,
       description: motionStudy.dek,
     };
   }
   const cs = getCaseStudy(slug) ?? getUgcCaseStudy(slug);
   if (!cs) return {};
   return {
-    title: `${cs.title}, Justin Henry Teh`,
+    title: `${cs.title} case study, Justin Henry Teh`,
     description: cs.dek,
   };
 }
@@ -74,12 +73,10 @@ function StudyHeader({
   title,
   client,
   hook,
-  starId,
 }: {
   title: string;
   client: string;
   hook: string;
-  starId: string;
 }) {
   return (
     <header className="pt-14 pb-10 md:pt-20 md:pb-12">
@@ -93,7 +90,6 @@ function StudyHeader({
         </h1>
         <p className="study-hed mt-5">{client}</p>
         <p className="study-copy mt-6">{hook}</p>
-        <SiteStar id={starId} label={title} className="link-ui mt-6" />
         </div>
       </div>
     </header>
@@ -252,7 +248,7 @@ function UgcWork({ cs }: { cs: UgcCaseStudy }) {
 
   return (
     <main className="bg-bg">
-      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} starId={`work:${cs.slug}`} />
+      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} />
 
       <div className="mb-4">
         <Column>
@@ -284,7 +280,6 @@ function MotionWork() {
         title={motionStudy.title}
         client={motionStudy.client}
         hook={motionIntro.dek}
-        starId={`work:${motionStudy.slug}`}
       />
 
       <div className="px-4 pb-12 md:px-6 md:pb-16">
@@ -332,7 +327,7 @@ export default async function WorkPage({
 
   return (
     <main className="bg-bg">
-      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} starId={`work:${cs.slug}`} />
+      <StudyHeader title={cs.title} client={cs.client} hook={cs.hook} />
       <HeroStill image={cs.coverImage} title={cs.title} />
       <StudySections sections={cs.sections} />
       <AssetGrid images={cs.gallery ?? []} title={cs.title} />

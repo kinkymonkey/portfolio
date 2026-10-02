@@ -7,7 +7,7 @@ import { Timeline } from "@/components/Timeline";
 export const metadata: Metadata = {
   title: "About, Justin Henry Teh",
   description:
-    "Fifteen years designing. Ten years running teams. Same standard, now pointed at AI production: SOPs, quality assurance, and the call to make the stack work.",
+    "20+ years designing, 8 running teams. Same standard, now pointed at AI production: SOPs, quality assurance, and the call to make the stack work.",
 };
 
 export default function AboutPage() {

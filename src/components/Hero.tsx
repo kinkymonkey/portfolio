@@ -26,7 +26,7 @@ export function Hero() {
             <div className="max-w-md space-y-4 font-body text-sm leading-relaxed text-white/90 md:text-base">
               <p>
                 Designer first, 20+ years of it. 8 of those leading teams.
-                I&apos;ve grown one from 1 person to 300, and run as many as 25
+                I&apos;ve grown one from 3 people to 300, and run as many as 25
                 designers, 15 customer service associates, and 3 managers at
                 once.
               </p>

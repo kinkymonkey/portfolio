@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Contact } from "@/components/Contact";
+import { site } from "@/lib/data";
 import "./globals.css";
 
 const display = Playfair_Display({
@@ -23,15 +24,31 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://justinhenryteh.com"),
   title: "Justin Henry Teh, Creative Operations Director",
   description:
-    "Fifteen years as a designer and art director. Ten more running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
+    "20+ years as a designer and art director, 8 of them running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
   openGraph: {
     title: "Justin Henry Teh, Creative Operations Director",
     description:
-      "Fifteen years as a designer and art director. Ten more running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
+      "20+ years as a designer and art director, 8 of them running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
     url: "https://justinhenryteh.com",
     siteName: "Justin Henry Teh",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Justin Henry Teh, Creative Operations Director",
+    description:
+      "20+ years as a designer and art director, 8 of them running creative teams. Same job now, with AI in the pipeline, judged in production, not from a vendor demo.",
+  },
+  alternates: { canonical: "./" },
+};
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  url: "https://justinhenryteh.com",
+  sameAs: [site.linkedin],
 };
 
 export const viewport: Viewport = {
@@ -54,6 +71,10 @@ export default function RootLayout({
           FORM: Exhibition Magazine, user-pinned, with the requested global type system.
           FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
         */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
         <SmoothScroll />
         <Nav />
         {children}

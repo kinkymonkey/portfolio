@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { site } from "@/lib/data";
 
 export function ContactForm() {
   const [status, setStatus] = useState<
@@ -36,9 +37,21 @@ export function ContactForm() {
       <p className="mb-2 text-xs tracking-[0.25em] text-neutral-500 uppercase">
         Inquiries &amp; commissions
       </p>
-      <h2 className="font-display mb-12 text-4xl font-light tracking-tight text-white md:text-5xl">
+      <h1 className="font-display mb-12 text-4xl font-light tracking-tight text-white md:text-5xl">
         Let&apos;s work together.
-      </h2>
+      </h1>
+      <p className="-mt-6 mb-12 text-sm text-neutral-400">
+        Prefer LinkedIn?{" "}
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white underline underline-offset-4"
+        >
+          Message me there
+        </a>
+        .
+      </p>
 
       {status === "success" ? (
         <div>
