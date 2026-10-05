@@ -158,8 +158,9 @@ html:has(.ma) body { background: #0a0a0b; }
 .ma-price__n span { font-size: 1.125rem; font-weight: 500; letter-spacing: 0; color: var(--mu); }
 .ma-price--main { background: var(--ac); border-color: var(--ac); color: var(--ink); }
 .ma-price--main p, .ma-price--main .ma-price__n { color: var(--ink) !important; }
-.ma-price--main ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-weight: 500; }
-.ma-price--main li::before { content: "+ "; font-weight: 700; }
+.ma-price ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-weight: 500; font-size: 0.9375rem; }
+.ma-price li::before { content: "+ "; font-weight: 700; }
+.ma-price:not(.ma-price--main) li { color: var(--mu); }
 
 /* FAQ */
 .ma-faq-wrap { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: clamp(24px, 5vw, 72px); }

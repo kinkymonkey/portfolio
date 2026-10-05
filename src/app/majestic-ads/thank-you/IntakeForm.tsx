@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-export function IntakeForm({ reference, defaultBrand }: { reference: string; defaultBrand: string }) {
+export function IntakeForm({ reference, defaultBrand, turnaround }: { reference: string; defaultBrand: string; turnaround?: string }) {
   const [state, setState] = useState<"idle" | "busy" | "done">("idle");
   const [error, setError] = useState("");
 
@@ -41,7 +41,7 @@ export function IntakeForm({ reference, defaultBrand }: { reference: string; def
   if (state === "done") {
     return (
       <p className="ma-notice" role="status">
-        Got it. I have your brand details and files. Your set is ready about 10 days from now. I will email you at the address you used to pay.
+        Got it. I have your brand details and files. Your ads are due in {turnaround ?? "5 to 10 business days"}, counted from now. I will email you at the address you used to pay.
       </p>
     );
   }

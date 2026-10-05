@@ -8,11 +8,11 @@ import { links } from "./links";
   THESIS: A sales page that shows the files you get, not a SaaS page with avatars and blue buttons.
   OWN-WORLD: Near-black (#0a0a0b), warm white text, one flash-pink accent (#ff4d94), Bricolage Grotesque display, Instrument Sans body.
   STORY: A brand owner sees the real set, sees their look vs a fresh one on the slider, reads one price, pays.
-  FIRST VIEWPORT: Headline left at display size, $249 button under it, three staggered ads right.
+  FIRST VIEWPORT: Headline left at display size, $499 button under it, three staggered ads right.
   FORM: Image-led bento with a before/after slider as the one signature piece.
 */
 
-const strip = ["No contract. No lock-in", "3 revision rounds", "You own the files", "Delivered in 10 days"];
+const strip = ["No contract on sprints", "1 revision round", "Commercial use rights", "Delivered in 5 to 7 business days"];
 
 const tools = [
   ["Researches real customer words", "No", "No", "Yes"],
@@ -20,25 +20,28 @@ const tools = [
   ["A person checks logo, label and colour", "No", "Sometimes", "Every frame"],
   ["Claims and AI-label check", "No", "No", "Yes"],
   ["Brief and test plan included", "No", "No", "Yes"],
-  ["No contract, no subscription", "No", "Yes", "Yes"],
+  ["No contract on sprints", "No", "Yes", "Yes"],
 ] as const;
 
 const steps = [
-  ["Day 0", "You pay and send your product link and photos."],
-  ["Days 1 to 3", "I research what your customers say and what your competitors run. You see the 3 angles."],
-  ["Days 4 to 8", "I make the set and check every frame against your real product."],
-  ["Day 10", "Files, briefs and test plan arrive. You get 3 rounds of revisions."],
+  ["Day 0", "You pay, then send your product link, photos, brand files and the claims you can make. The clock starts when I have everything."],
+  ["Days 1 to 2", "I research what your customers say and what your competitors run. You see the 3 angles."],
+  ["Days 3 to 5", "I make the set and check every frame against your real product."],
+  ["Days 5 to 7", "Files, briefs and test plan arrive. You get 1 round of revisions."],
 ] as const;
 
 const faq = [
-  ["How long does it take?", "About 10 days from payment and your product photos."],
+  [
+    "How long does it take?",
+    "5 to 7 business days for the first creative sprint and 7 to 10 business days for the paid social sprint. The clock starts when I have your product link, photos, brand files and claims.",
+  ],
   [
     "What do you need from me?",
-    "Your product link, product photos, any brand guidelines, the claims you are allowed to make, and the competitors you want to stand apart from.",
+    "Your product link, product photos, any brand guidelines, the claims you are allowed to make, and the competitors you want to stand apart from. One person on your side sends one list of feedback.",
   ],
   [
     "How do revisions work?",
-    "You get 3 rounds. In each round you send one list of changes and I return the updated set.",
+    "Each sprint includes one consolidated revision round. You send one list of changes and I return the updated set. The monthly pipeline includes two rounds per batch. More rounds are billed.",
   ],
   [
     "Is it made with AI?",
@@ -46,16 +49,23 @@ const faq = [
   ],
   [
     "Can you make videos with AI people?",
-    "Yes, if you want them. Tell me when you order. Platforms such as TikTok and Meta can ask for a label on realistic AI people, and I mark which assets need it.",
+    "Yes, as an add-on. Tell me when you order. Platforms such as TikTok and Meta can ask for a label on realistic AI people, and I mark which assets need it.",
   ],
-  ["Who owns the files?", "You do."],
+  [
+    "Who can use the files?",
+    "You get commercial usage rights to the final files. Editable source files are not included. Ask me if you need them.",
+  ],
   [
     "What products work?",
-    "Skincare is where I start. Food, accessories, home goods and other physical products with clear photos work too.",
+    "Physical products with clear photos are where I start: skincare, beauty, food, accessories, home goods and gadgets. For apps and subscription offers, message me before you order.",
   ],
   [
-    "Is $249 a trial?",
-    "No. It is a full set. $249 is the price of your first one, and every set after is $499.",
+    "Do you run my ads?",
+    "No. I make the creative and a test plan. You or your media buyer runs the campaign.",
+  ],
+  [
+    "Is the first creative sprint a trial?",
+    "No. It is a full set at a one-time pilot price for brands new to Majestic Ads, one per brand. After it, the paid social sprint is $1,500.",
   ],
 ] as const;
 
@@ -76,7 +86,7 @@ export default function MajesticAdsPage() {
             </Link>
           </div>
           <a className="ma-btn ma-btn--sm" href={links.first}>
-            Get your first set, $249
+            Start your first sprint, $499
           </a>
         </div>
       </header>
@@ -86,17 +96,18 @@ export default function MajesticAdsPage() {
           <div className="ma-wrap ma-hero__grid">
             <div>
               <h1 className="ma-h1 ma-rise" style={{ ["--d" as string]: "0ms" }}>
-                A fresh set of ads for your product.
+                Test-ready ads for your product.
               </h1>
               <p className="ma-lede ma-rise" style={{ ["--d" as string]: "140ms" }}>
-                6 image ads and 3 videos, each video with 3 different openings. Made from your product link,
-                checked against your real product, ready in 10 days.
+                A fresh set of Meta and TikTok ads: 6 image ads and 3 videos, each video with 3 different
+                openings. New hooks, angles and formats, checked against your real product and delivered in 5 to
+                7 business days.
               </p>
               <div className="ma-rise ma-cta-row" style={{ ["--d" as string]: "260ms" }}>
                 <a className="ma-btn" href={links.first}>
-                  Get your first set for $249 <ArrowRight size={20} weight="bold" />
+                  Start your first creative sprint, $499 <ArrowRight size={20} weight="bold" />
                 </a>
-                <span className="ma-muted">Then $499 a set, or $1,000 a month for 3.</span>
+                <span className="ma-muted">Then $1,500 for a full sprint, or $3,500 a month always-on.</span>
               </div>
               <ul className="ma-strip ma-rise" style={{ ["--d" as string]: "380ms" }}>
                 {strip.map((t) => (
@@ -106,7 +117,7 @@ export default function MajesticAdsPage() {
                 ))}
               </ul>
               <p className="ma-small ma-rise" style={{ ["--d" as string]: "460ms" }}>
-                Skincare, food, accessories, home. Anything with a product photo.
+                Built for DTC and e-commerce brands that run paid social.
               </p>
             </div>
             <div className="ma-hero__art" aria-hidden={false}>
@@ -130,7 +141,8 @@ export default function MajesticAdsPage() {
                 out.
               </p>
               <p>
-                <strong>A $5 freelancer gives you one image</strong> and no thinking behind it.
+                <strong>A freelancer gives you one image per brief.</strong> You manage the revisions and the
+                thinking behind it.
               </p>
             </div>
           </div>
@@ -138,11 +150,32 @@ export default function MajesticAdsPage() {
 
         <section className="ma-sec">
           <div className="ma-wrap">
-            <h2 className="ma-h2">One set. Everything you need to run a test.</h2>
+            <h2 className="ma-h2">Who this is for.</h2>
+            <div className="ma-problems">
+              <p>
+                <strong>DTC and e-commerce brands</strong> spending about $10,000 to $100,000 a month on Meta or
+                TikTok, who need fresh creative faster than a designer can brief it.
+              </p>
+              <p>
+                <strong>Consumer apps and subscription brands</strong>, and beauty, wellness, apparel, food, home
+                and gadget brands.
+              </p>
+              <p>
+                <strong>Performance agencies</strong> that need overflow creative, and brands entering
+                English-speaking markets.
+              </p>
+            </div>
+            <p className="ma-small">Not set up for companies that need vendor onboarding, legal review or procurement.</p>
+          </div>
+        </section>
+
+        <section className="ma-sec">
+          <div className="ma-wrap">
+            <h2 className="ma-h2">One sprint. Everything you need to run a test.</h2>
             <div className="ma-bento">
               <div className="ma-cell ma-cell--a">
                 <h3 className="ma-h3">6 image ads</h3>
-                <p className="ma-muted">4:5 for the feed, 9:16 for Stories and Reels.</p>
+                <p className="ma-muted">4:5 for the feed, 9:16 for Stories and Reels. 3 primary-text variations per angle.</p>
                 <div className="ma-six">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <Slot key={n} name={`static-${n}`} ratio="4/5" alt={`Image ad ${n}`} />
@@ -204,7 +237,7 @@ export default function MajesticAdsPage() {
 
         <section className="ma-sec">
           <div className="ma-wrap">
-            <h2 className="ma-h2">Ten days, four steps.</h2>
+            <h2 className="ma-h2">Five to seven business days, four steps.</h2>
             <ol className="ma-steps">
               {steps.map(([day, text]) => (
                 <li key={day}>
@@ -221,12 +254,12 @@ export default function MajesticAdsPage() {
             <h2 className="ma-h2">What the tools skip.</h2>
             <div className="ma-table-wrap">
               <table className="ma-table">
-                <caption className="ma-sr">Majestic Ads compared with ad tools and a $5 freelancer</caption>
+                <caption className="ma-sr">Majestic Ads compared with ad tools and a freelancer</caption>
                 <thead>
                   <tr>
                     <th scope="col"></th>
                     <th scope="col">Ad tools</th>
-                    <th scope="col">$5 freelancer</th>
+                    <th scope="col">Freelancer</th>
                     <th scope="col" className="ma-table__us">
                       Majestic Ads
                     </th>
@@ -274,40 +307,68 @@ export default function MajesticAdsPage() {
             <h2 className="ma-h2">Pricing</h2>
             <div className="ma-prices">
               <div className="ma-price ma-price--main">
-                <h3 className="ma-h3">First set</h3>
-                <p className="ma-price__n">$249</p>
-                <p>For brands new to Majestic Ads. One first set per brand.</p>
+                <h3 className="ma-h3">First creative sprint</h3>
+                <p className="ma-price__n">$499</p>
+                <p>A one-time pilot for brands new to Majestic Ads. One per brand.</p>
                 <ul>
-                  <li>6 image ads</li>
-                  <li>3 videos, 3 openings each</li>
+                  <li>1 product or offer, Meta or TikTok</li>
+                  <li>3 angles</li>
+                  <li>6 image ads, 2 per angle</li>
+                  <li>3 videos, 10 to 20 seconds, 3 openings each</li>
+                  <li>3 primary-text variations per angle</li>
                   <li>3 briefs and 1 test plan</li>
-                  <li>3 revision rounds</li>
+                  <li>1 revision round</li>
+                  <li>Delivered in 5 to 7 business days</li>
                 </ul>
                 <a className="ma-btn ma-btn--ink" href={links.first}>
-                  Get your first set <ArrowRight size={20} weight="bold" />
+                  Start your first sprint <ArrowRight size={20} weight="bold" />
                 </a>
               </div>
               <div className="ma-price">
-                <h3 className="ma-h3">One set</h3>
-                <p className="ma-price__n">$499</p>
-                <p>Any set after your first. The same set, the same 3 revision rounds.</p>
+                <h3 className="ma-h3">Paid social sprint</h3>
+                <p className="ma-price__n">$1,500</p>
+                <p>The full one-off campaign package for one product or offer.</p>
+                <ul>
+                  <li>5 angles</li>
+                  <li>10 image ads, 2 per angle</li>
+                  <li>5 videos, 15 to 30 seconds, 2 openings each</li>
+                  <li>4:5, 1:1 and 9:16 for Meta, 9:16 for TikTok and Reels</li>
+                  <li>Captions, on-screen text and CTA variations</li>
+                  <li>1 brief per angle and 1 test plan</li>
+                  <li>1 consolidated revision round</li>
+                  <li>Delivered in 7 to 10 business days</li>
+                </ul>
                 <a className="ma-btn ma-btn--ghost" href={links.single}>
-                  Get a set
+                  Get a sprint
                 </a>
               </div>
               <div className="ma-price">
-                <h3 className="ma-h3">3 sets a month</h3>
+                <h3 className="ma-h3">Always-on pipeline</h3>
                 <p className="ma-price__n">
-                  $1,000<span> a month</span>
+                  $3,500<span> a month</span>
                 </p>
-                <p>A new set about every 10 days. Ads wear out in 2 to 3 weeks, so you always have fresh ones.</p>
+                <p>Fresh creative every month for brands that spend on paid social all the time. Cancel anytime.</p>
+                <ul>
+                  <li>1 planning call a month</li>
+                  <li>8 to 12 concepts</li>
+                  <li>16 to 24 image ads and 8 to 12 videos</li>
+                  <li>New hooks, CTAs and cut-downs from what works</li>
+                  <li>2 revision rounds per batch</li>
+                  <li>Monthly review of the results you share</li>
+                  <li>Delivered weekly or every two weeks</li>
+                </ul>
                 <a className="ma-btn ma-btn--ghost" href={links.monthly}>
                   Start monthly
                 </a>
               </div>
             </div>
             <p className="ma-small">
-              Ad tools run $39 to $999 a month and you do the work. Icon charges $1,000 a month for 6 UGC ads.
+              Add-ons on request: extra concepts or video versions, a new-language pass, AI avatar videos, rush
+              delivery and editable source files.
+            </p>
+            <p className="ma-small">
+              Ad tools run about $29 to $249 a month and you do the work. Freelancers charge about $150 to $500 per
+              ad. Agencies start around $3,500 a month.
             </p>
           </div>
         </section>
@@ -316,7 +377,12 @@ export default function MajesticAdsPage() {
           <div className="ma-wrap">
             <h2 className="ma-h2">What this is not.</h2>
             <p className="ma-body ma-big">
-              Media buying. Ad copywriting as a service. Guaranteed sales or results.
+              Media buying or ad account management. Landing pages. Filming real creators. More than one product
+              per sprint. Guaranteed sales or results.
+            </p>
+            <p className="ma-small">
+              The creative is built for testing. Results depend on your offer, your targeting and how the campaign
+              is run.
             </p>
           </div>
         </section>
@@ -340,10 +406,10 @@ export default function MajesticAdsPage() {
 
         <section className="ma-sec ma-final">
           <div className="ma-wrap">
-            <h2 className="ma-h1">Get your fresh set.</h2>
+            <h2 className="ma-h1">Get your fresh set of ads.</h2>
             <div className="ma-cta-row">
               <a className="ma-btn" href={links.first}>
-                Get your first set for $249 <ArrowRight size={20} weight="bold" />
+                Start your first creative sprint, $499 <ArrowRight size={20} weight="bold" />
               </a>
             </div>
             <p className="ma-small">After you pay, a short form asks for your product link, photos and claims.</p>

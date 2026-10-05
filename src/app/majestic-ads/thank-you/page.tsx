@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { db, type Order } from "../_lib/db";
 import { refreshPaid } from "../_lib/paymongo";
+import { PLANS, type PlanKey } from "../_lib/plans";
 import { links } from "../links";
 import { IntakeForm } from "./IntakeForm";
 
@@ -27,9 +28,9 @@ export default async function ThankYou({ searchParams }: { searchParams: Promise
             <h1 className="ma-h1">Thank you.</h1>
             <p className="ma-lede">PayMongo emails your receipt. Now tell me about your brand and send your files.</p>
             {order.intake ? (
-              <p className="ma-notice" role="status">I already have your details. Your set is ready about 10 days after I received them.</p>
+              <p className="ma-notice" role="status">I already have your details. Your ads are due in {PLANS[order.plan as PlanKey]?.turnaround ?? "5 to 10 business days"} after I received everything.</p>
             ) : (
-              <IntakeForm reference={order.ref} defaultBrand={order.site_host} />
+              <IntakeForm reference={order.ref} defaultBrand={order.site_host} turnaround={PLANS[order.plan as PlanKey]?.turnaround} />
             )}
           </>
         ) : order ? (
