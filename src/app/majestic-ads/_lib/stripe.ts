@@ -25,7 +25,7 @@ async function stripe(path: string, method: "GET" | "POST", params?: Record<stri
 export async function createCheckout(order: Pick<Order, "ref" | "email" | "name">, plan: PlanKey, origin: string) {
   const { usd, name } = PLANS[plan];
   const monthly = plan === "monthly";
-  const json = await stripe("/v1/checkout_sessions", "POST", {
+  const json = await stripe("/v1/checkout/sessions", "POST", {
     mode: monthly ? "subscription" : "payment",
     "line_items[0][quantity]": "1",
     "line_items[0][price_data][currency]": "usd",
@@ -47,7 +47,7 @@ export async function refreshPaid(order: Order): Promise<boolean> {
   if (!order.session_id) return false;
   let paid = false;
   try {
-    const s = await stripe(`/v1/checkout_sessions/${order.session_id}`, "GET");
+    const s = await stripe(`/v1/checkout/sessions/${order.session_id}`, "GET");
     paid = s.payment_status === "paid";
   } catch {
     return false;
