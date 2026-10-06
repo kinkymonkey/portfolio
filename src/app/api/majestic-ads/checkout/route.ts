@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   const back = (query: string) => NextResponse.redirect(`${origin}/majestic-ads/start?plan=${isPlan(plan) ? plan : "first"}&${query}`, 303);
 
   if (!isPlan(plan)) return NextResponse.redirect(`${origin}/majestic-ads#price`, 303);
-  if (field(form, "company")) return NextResponse.redirect(`${origin}/majestic-ads`, 303); // honeypot
+  if (field(form, "hp_check")) return NextResponse.redirect(`${origin}/majestic-ads`, 303); // honeypot
 
   const name = field(form, "name");
   const email = normEmail(field(form, "email"));

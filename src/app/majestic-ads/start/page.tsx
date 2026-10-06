@@ -37,7 +37,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
 
         <form className="ma-form" method="post" action="/api/majestic-ads/checkout">
           <input type="hidden" name="plan" value={key} />
-          <input className="ma-hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+          <input className="ma-hp" type="text" name="hp_check" tabIndex={-1} autoComplete="off" aria-hidden="true" />
           <label>
             Your name
             <input name="name" required autoComplete="name" maxLength={120} />
