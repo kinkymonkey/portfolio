@@ -34,7 +34,7 @@ export default async function Pay({ searchParams }: { searchParams: Promise<{ re
   return (
     <main className="ma-sec">
       <div className="ma-wrap ma-narrow">
-        <h1 className="ma-h2">3 sets a month: ${usd.toLocaleString("en-US")}</h1>
+        <h1 className="ma-h2">Monthly pipeline: ${usd.toLocaleString("en-US")}</h1>
         <p className="ma-body">
           Your card is charged ₱{phpFor(usd).toLocaleString("en-PH")} now and again every month. Cancel anytime by messaging me.
         </p>

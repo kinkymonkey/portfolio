@@ -34,7 +34,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
 
         {sp.notice === "first-used" && (
           <p className="ma-notice" role="status">
-            This email or website has already had a set, so the first-set price no longer applies. A set is $499.
+            This email or website has already had a set, so the first-set price no longer applies. A core sprint is $1,500.
           </p>
         )}
         {sp.error && ERRORS[sp.error] && (

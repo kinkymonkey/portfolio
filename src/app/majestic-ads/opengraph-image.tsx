@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Majestic Ads: a fresh set of ads for your product. $249 for your first set.";
+export const alt = "Majestic Ads: a fresh set of ads for your product. $499 for your first set.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +55,7 @@ export default async function OpengraphImage() {
                   borderRadius: 999,
                 }}
               >
-                $249 for your first set
+                $499 for your first set
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default async function OpengraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "#a6a6ad" }}>
-          6 image ads and 3 videos. Ready in 10 days. By Justin Henry Teh.
+          6 image ads and 3 videos. Ready in 5 to 7 business days. By Justin Henry Teh.
         </div>
       </div>
     ),

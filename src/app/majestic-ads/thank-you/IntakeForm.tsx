@@ -41,7 +41,7 @@ export function IntakeForm({ reference, defaultBrand }: { reference: string; def
   if (state === "done") {
     return (
       <p className="ma-notice" role="status">
-        Got it. I have your brand details and files. Your set is ready about 10 days from now. I will email you at the address you used to pay.
+        Got it. I have your brand details and files. Your set is ready 5 to 7 business days from now. I will email you at the address you used to pay.
       </p>
     );
   }

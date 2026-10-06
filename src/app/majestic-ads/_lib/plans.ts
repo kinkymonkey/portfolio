@@ -2,9 +2,9 @@
 export const USD_TO_PHP_RATE = 62;
 
 export const PLANS = {
-  first: { usd: 249, name: "Majestic Ads: first set", label: "First set", blurb: "One set. For brands new to Majestic Ads." },
-  single: { usd: 499, name: "Majestic Ads: one set", label: "One set", blurb: "One set." },
-  monthly: { usd: 1000, name: "Majestic Ads: 3 sets a month", label: "3 sets a month", blurb: "3 sets a month. Cancel anytime." },
+  first: { usd: 499, name: "Majestic Ads: first sprint", label: "First sprint", blurb: "One sprint. For brands new to Majestic Ads." },
+  single: { usd: 1500, name: "Majestic Ads: core sprint", label: "Core sprint", blurb: "One core sprint." },
+  monthly: { usd: 3500, name: "Majestic Ads: monthly pipeline", label: "Monthly pipeline", blurb: "Monthly creative pipeline. Cancel anytime." },
 } as const;
 
 export type PlanKey = keyof typeof PLANS;

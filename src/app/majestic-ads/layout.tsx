@@ -16,7 +16,7 @@ const body = Instrument_Sans({
 
 const title = "Majestic Ads: a fresh set of ads for your product";
 const description =
-  "6 image ads and 3 videos, each video with 3 different openings. Made from your product link, checked against your real product, ready in 10 days. $249 for your first set.";
+  "6 image ads and 3 videos from 3 angles, ready to test on Meta or TikTok. Checked against your real product, ready in 5 to 7 business days. $499 for your first sprint.";
 
 export const metadata: Metadata = {
   title,
