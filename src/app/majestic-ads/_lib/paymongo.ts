@@ -33,7 +33,7 @@ export async function createCheckout(order: Pick<Order, "ref" | "email" | "name"
   const json = await pm("/v2/checkout_sessions", "POST", {
     data: {
       attributes: {
-        line_items: [{ name, amount: Math.round(phpFor(usd) * 100), currency: "PHP", quantity: 1 }],
+        line_items: [{ name, amount: (await phpFor(usd)) * 100, currency: "PHP", quantity: 1 }],
         payment_method_types: ["card", "gcash", "qrph"],
         success_url: `${origin}/majestic-ads/thank-you?ref=${order.ref}`,
         cancel_url: `${origin}/majestic-ads/start?plan=${plan}`,
@@ -51,7 +51,7 @@ export async function createCheckout(order: Pick<Order, "ref" | "email" | "name"
 // PayMongo plans are PHP only. Find the plan by name, create it once.
 async function monthlyPlanId() {
   const test = Number(process.env.MA_MONTHLY_TEST_PHP) || 0; // set to e.g. 20 to test with a PHP 20 plan
-  const centavos = test ? test * 100 : Math.round(phpFor(PLANS.monthly.usd) * 100);
+  const centavos = test ? test * 100 : (await phpFor(PLANS.monthly.usd)) * 100;
   const name = test ? `${PLANS.monthly.name} (test PHP ${test})` : PLANS.monthly.name;
   const list = await pm("/v1/subscriptions/plans", "GET");
   const found = (list.data as { id: string; attributes: { name: string; amount: number } }[]).find(

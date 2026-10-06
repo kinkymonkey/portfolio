@@ -15,7 +15,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   const sp = await searchParams;
   const key = isPlan(sp.plan) ? sp.plan : "first";
   const plan = PLANS[key];
-  const php = phpFor(plan.usd).toLocaleString("en-PH");
+  const php = (await phpFor(plan.usd)).toLocaleString("en-PH");
   const local = await localPrice(plan.usd);
 
   return (
@@ -60,7 +60,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
         </form>
 
         <p className="ma-small">
-          You are charged ₱{php} through PayMongo, which equals ${plan.usd.toLocaleString("en-US")}. PayMongo only charges in
+          You are charged about ₱{php} through PayMongo, which equals ${plan.usd.toLocaleString("en-US")} at today&apos;s rate. PayMongo only charges in
           Philippine pesos, so your card issuer converts it to your currency.
           {local && <> At today&apos;s rate that is about {local}.</>} PayMongo adds its processing fee at checkout.
         </p>
