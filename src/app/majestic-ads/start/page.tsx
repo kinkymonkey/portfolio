@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PLANS, isPlan, phpFor } from "../_lib/plans";
-import { localPrice } from "../_lib/currency";
-import { subscriptionsOn } from "../_lib/paymongo";
+import { PLANS, isPlan } from "../_lib/plans";
 
 export const metadata: Metadata = { title: "Checkout | Majestic Ads", robots: { index: false } };
 
@@ -15,8 +13,6 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
   const sp = await searchParams;
   const key = isPlan(sp.plan) ? sp.plan : "first";
   const plan = PLANS[key];
-  const php = (await phpFor(plan.usd)).toLocaleString("en-PH");
-  const local = await localPrice(plan.usd);
 
   return (
     <main className="ma-sec">
@@ -26,9 +22,7 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
         <p className="ma-body">{plan.blurb}</p>
         {key === "monthly" && (
           <p className="ma-body">
-            {subscriptionsOn()
-              ? "Your card is charged every month."
-              : "Month 1 is charged now. Each month after, I send you a payment link."}
+            Your card is charged every month until you cancel. Cancel anytime by messaging me.
           </p>
         )}
 
@@ -60,9 +54,8 @@ export default async function Start({ searchParams }: { searchParams: Promise<{ 
         </form>
 
         <p className="ma-small">
-          You are charged about ₱{php} through PayMongo, which equals ${plan.usd.toLocaleString("en-US")} at today&apos;s rate. PayMongo only charges in
-          Philippine pesos, so your card issuer converts it to your currency.
-          {local && <> At today&apos;s rate that is about {local}.</>} PayMongo adds its processing fee at checkout.
+          You are charged ${plan.usd.toLocaleString("en-US")} in US dollars through Stripe. If your card is in another currency, your card issuer
+          converts it at its own rate.
         </p>
       </div>
     </main>

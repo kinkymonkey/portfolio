@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, type Order } from "@/app/majestic-ads/_lib/db";
-import { refreshPaid } from "@/app/majestic-ads/_lib/paymongo";
+import { refreshPaid } from "@/app/majestic-ads/_lib/stripe";
 
 const DRIVE = /^https:\/\/(drive|docs)\.google\.com\/\S+$/i;
 const clip = (v: unknown, max = 3000) => String(v ?? "").trim().slice(0, max);

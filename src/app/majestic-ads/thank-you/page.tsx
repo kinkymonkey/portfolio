@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { db, type Order } from "../_lib/db";
-import { refreshPaid } from "../_lib/paymongo";
+import { refreshPaid } from "../_lib/stripe";
 import { links } from "../links";
 import { IntakeForm } from "./IntakeForm";
 
@@ -25,7 +25,7 @@ export default async function ThankYou({ searchParams }: { searchParams: Promise
         {paid && order ? (
           <>
             <h1 className="ma-h1">Thank you.</h1>
-            <p className="ma-lede">PayMongo emails your receipt. Now tell me about your brand and send your files.</p>
+            <p className="ma-lede">Stripe emails your receipt. Now tell me about your brand and send your files.</p>
             {order.intake ? (
               <p className="ma-notice" role="status">I already have your details. Your set is ready 5 to 7 business days after I received them.</p>
             ) : (

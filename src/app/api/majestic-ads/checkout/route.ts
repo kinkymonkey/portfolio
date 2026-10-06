@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, normEmail, siteHost, type Order } from "@/app/majestic-ads/_lib/db";
-import { createCheckout, createSubscription, newRef, refreshPaid, subscriptionsOn } from "@/app/majestic-ads/_lib/paymongo";
+import { createCheckout, newRef, refreshPaid } from "@/app/majestic-ads/_lib/stripe";
 import { isPlan } from "@/app/majestic-ads/_lib/plans";
 
 const field = (form: FormData, key: string) => String(form.get(key) ?? "").trim();
@@ -39,12 +39,6 @@ export async function POST(req: NextRequest) {
 
     const ref = newRef();
     await q`INSERT INTO ma_orders (ref, plan, name, email, site_host) VALUES (${ref}, ${plan}, ${name}, ${email}, ${host})`;
-
-    if (plan === "monthly" && subscriptionsOn()) {
-      const { subscriptionId, paymentIntentId } = await createSubscription({ name, email });
-      await q`UPDATE ma_orders SET subscription_id = ${subscriptionId}, payment_intent_id = ${paymentIntentId} WHERE ref = ${ref}`;
-      return NextResponse.redirect(`${origin}/majestic-ads/pay?ref=${ref}`, 303);
-    }
 
     const session = await createCheckout({ ref, email, name }, plan, origin);
     await q`UPDATE ma_orders SET session_id = ${session.id} WHERE ref = ${ref}`;
