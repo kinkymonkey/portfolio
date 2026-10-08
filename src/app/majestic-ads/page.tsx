@@ -60,6 +60,45 @@ const faq = [
   ],
 ] as const;
 
+const staticBrands = ["Essprezoo", "Maren", "Duskfig", "Verdant", "Nacrelle", "Jellybops"];
+const sampleBrands = ["Kinetiq", "Pawlio", "Brewhaus", "Solenne", "Tidemark", "Voltrim", "Pistacia", "Littlebean"];
+
+const offer = (name: string, price: string, description: string) => ({
+  "@type": "Offer",
+  name,
+  price,
+  priceCurrency: "USD",
+  description,
+  url: "https://justinhenryteh.com/majestic-ads",
+});
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Majestic Ads",
+      serviceType: "Paid social ad creative",
+      description: "Image ads, video ads, copy and a test matrix for Meta and TikTok, checked against your real product.",
+      provider: { "@type": "Person", name: "Justin Henry Teh", url: "https://justinhenryteh.com" },
+      url: "https://justinhenryteh.com/majestic-ads",
+      offers: [
+        offer("First sprint", "499", "3 angles, 6 image ads, 3 videos, copy variations, test matrix. One per brand."),
+        offer("Core sprint", "1500", "5 angles, 10 image ads, 5 videos, test plan."),
+        offer("Monthly pipeline (per month)", "3500", "8 to 12 concepts a month, delivered weekly or every two weeks."),
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faq.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+  ],
+};
+
 function Cell({ yes }: { yes: string }) {
   if (yes === "No") return <X size={18} weight="bold" aria-label="No" />;
   return <span>{yes}</span>;
@@ -68,6 +107,7 @@ function Cell({ yes }: { yes: string }) {
 export default function MajesticAdsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <header className="ma-head">
         <div className="ma-wrap ma-head__in">
           <div className="ma-head__brand">
@@ -112,8 +152,8 @@ export default function MajesticAdsPage() {
               </p>
             </div>
             <div className="ma-hero__art" aria-hidden={false}>
-              <Slot name="hero-1" ratio="4/5" alt="Sample skincare ad" className="ma-rise ma-hero__a" />
-              <Slot name="hero-2" ratio="4/5" alt="Sample skincare ad" className="ma-rise ma-hero__b" />
+              <Slot name="hero-1" ratio="4/5" alt="Sample skincare image ad, Midnight Majestic" className="ma-rise ma-hero__a" />
+              <Slot name="hero-2" ratio="4/5" alt="Sample skincare image ad, Midnight Majestic" className="ma-rise ma-hero__b" />
               <Slot name="hero-3" ratio="9/16" alt="Sample vertical ad" className="ma-rise ma-hero__c" />
             </div>
           </div>
@@ -147,7 +187,7 @@ export default function MajesticAdsPage() {
                 <p className="ma-muted">2 for each angle. 9:16, with 1:1 crops where they fit.</p>
                 <div className="ma-six">
                   {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <Slot key={n} name={`static-${n}`} ratio="4/5" alt={`Image ad ${n}`} />
+                    <Slot key={n} name={`static-${n}`} ratio="4/5" alt={`Concept image ad for ${staticBrands[n - 1]}`} />
                   ))}
                 </div>
               </div>
@@ -269,7 +309,7 @@ export default function MajesticAdsPage() {
           </div>
           <div className="ma-gallery" tabIndex={0} aria-label="Sample work, scrolls sideways">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <Slot key={n} name={`sample-${n}`} ratio="4/5" alt={`Sample work ${n}`} />
+              <Slot key={n} name={`sample-${n}`} ratio="4/5" alt={`Concept ad for ${sampleBrands[n - 1]}, sample work`} />
             ))}
           </div>
         </section>

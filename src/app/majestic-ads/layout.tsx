@@ -14,7 +14,7 @@ const body = Instrument_Sans({
   weight: ["400", "500", "600"],
 });
 
-const title = "Majestic Ads: a fresh set of ads for your product";
+const title = "Majestic Ads: image and video ad creative for Meta and TikTok";
 const description =
   "6 image ads and 3 videos from 3 angles, ready to test on Meta or TikTok. Checked against your real product, ready in 5 to 7 business days. $499 for your first sprint.";
 
