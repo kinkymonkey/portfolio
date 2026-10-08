@@ -150,7 +150,10 @@ export default function MajesticAdsPage() {
                 </div>
               </div>
               <div className="ma-cell ma-cell--b">
-                <Slot name="video-1" ratio="9/16" video alt="Sample video ad" className="ma-cell__video" />
+                <div className="ma-cell__videos">
+                  <Slot name="video-1" ratio="9/16" video alt="Sample video ad, cold brew" />
+                  <Slot name="video-2" ratio="9/16" video alt="Sample video ad, skincare" />
+                </div>
                 <div>
                   <h3 className="ma-h3">3 videos</h3>
                   <p className="ma-muted">10 to 20 seconds each, 9:16.</p>

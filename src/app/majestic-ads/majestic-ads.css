@@ -98,11 +98,12 @@ html:has(.ma) body { background: #0a0a0b; }
 .ma-cell { background: var(--s1); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
 .ma-cell p { margin: 0; }
 .ma-cell--a { grid-column: span 7; grid-row: span 2; }
-.ma-cell--b { grid-column: span 5; flex-direction: row; gap: 22px; align-items: flex-end; }
+.ma-cell--b { grid-column: span 5; flex-direction: column; gap: 22px; align-items: stretch; }
 .ma-cell--c { grid-column: span 5; }
 .ma-cell--d { grid-column: span 6; }
 .ma-cell--e { grid-column: span 6; }
-.ma-cell__video { width: 44%; flex: none; }
+.ma-cell__videos { display: flex; gap: 12px; }
+.ma-cell__videos .ma-slot { width: calc(50% - 6px); flex: none; }
 .ma-six { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
 .ma-hooks { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
 .ma-hooks li { background: var(--s2); border-radius: 12px; padding: 10px 14px; font-size: 0.9375rem; line-height: 1.4; }
@@ -195,8 +196,6 @@ html:has(.ma) body { background: #0a0a0b; }
   .ma-wrap { padding: 0 16px; }
   .ma-gallery { padding-inline: 16px; }
   .ma-steps { grid-template-columns: 1fr; }
-  .ma-cell--b { flex-direction: column; align-items: stretch; }
-  .ma-cell__video { width: 62%; }
   .ma-hero__b { margin-top: 32px; }
   .ma-btn { padding: 14px 22px; }
 }
