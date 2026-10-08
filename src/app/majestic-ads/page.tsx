@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Check, Plus, X } from "@phosphor-icons/react/dist/ssr";
 import { Slot } from "./Slot";
 import { BeforeAfter } from "./BeforeAfter";
+import { Lightbox } from "./Lightbox";
 import { links } from "./links";
 
 /*
@@ -81,6 +82,7 @@ export default function MajesticAdsPage() {
         </div>
       </header>
 
+      <Lightbox />
       <main>
         <section className="ma-hero">
           <div className="ma-wrap ma-hero__grid">
