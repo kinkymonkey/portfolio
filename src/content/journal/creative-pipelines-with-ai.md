@@ -1,7 +1,7 @@
 ---
 title: "What a creative pipeline actually is"
 description: "Creative pipelines for design, print, and AI video"
-date: 2026-10-02
+date: 2026-10-11
 hero: "/journal/creative-pipelines-with-ai/hero-16x9.jpg"
 ---
 
